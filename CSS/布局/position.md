@@ -126,22 +126,20 @@ position属性的默认值
 - 当 达到这个阙值点 时，就会 变成固定定位。
 - 参照对象：最近的滚动祖先包含的视口
 
-[![voOAiQ.png](D:\Users\veren\Desktop\Zeo_coder\demo\frond_end_study\CSS\布局\position.assets\voOAiQ.png)](https://imgse.com/i/voOAiQ)
+[![voOAiQ.png](https://s1.ax1x.com/2022/09/04/voOAiQ.png)](https://imgse.com/i/voOAiQ)
 
 
 
 # position值对比
 
-[![voOmMq.png](D:\Users\veren\Desktop\Zeo_coder\demo\frond_end_study\CSS\布局\position.assets\voOmMq.png)](https://imgse.com/i/voOmMq)
-
-
+[![voOmMq.png](https://s1.ax1x.com/2022/09/04/voOmMq.png)](https://imgse.com/i/voOmMq)
 
 # CSS属性 - z-index
 
 - 用来设置定位元素的层叠顺序（仅对定位元素有效）
   - 取值可以是 正整数、负整数、0
 
-[![voO0oD.png](D:\Users\veren\Desktop\Zeo_coder\demo\frond_end_study\CSS\布局\position.assets\voO0oD.png)](https://imgse.com/i/voO0oD)
+[![voO0oD.png](https://s1.ax1x.com/2022/09/04/voO0oD.png)](https://imgse.com/i/voO0oD)
 
 
 
