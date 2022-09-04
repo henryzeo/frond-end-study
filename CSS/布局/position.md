@@ -71,7 +71,7 @@ position属性的默认值
 - 应用场景
   - 微调
 
-[![voq7NQ.png](D:\Users\veren\Desktop\Zeo_coder\demo\frond_end_study\CSS\布局\position.assets\voq7NQ.png)](https://imgse.com/i/voq7NQ)
+![image-20220904151823585](position.assets/image-20220904151823585.png)
 
 
 
@@ -99,7 +99,7 @@ position属性的默认值
 - 不再给父元素汇报宽高数据
 - 脱标元素内部默认还是按照标准流布局
 
-[![voL9N4.png](D:\Users\veren\Desktop\Zeo_coder\demo\frond_end_study\CSS\布局\position.assets\voL9N4.png)](https://imgse.com/i/voL9N4)
+[![image-20220904151804576](position.assets/image-20220904151804576.png)](https://imgse.com/i/voL9N4)
 
 
 
@@ -126,13 +126,11 @@ position属性的默认值
 - 当 达到这个阙值点 时，就会 变成固定定位。
 - 参照对象：最近的滚动祖先包含的视口
 
-[![voOAiQ.png](D:\Users\veren\Desktop\Zeo_coder\demo\frond_end_study\CSS\布局\position.assets\voOAiQ.png)](https://imgse.com/i/voOAiQ)
-
-
+![image-20220904151745581](position.assets/image-20220904151745581.png)
 
 # position值对比
 
-[![voOmMq.png](D:\Users\veren\Desktop\Zeo_coder\demo\frond_end_study\CSS\布局\position.assets\voOmMq.png)](https://imgse.com/i/voOmMq)
+[![image-20220904151726861](position.assets/image-20220904151726861.png)](https://imgse.com/i/voOmMq)
 
 
 
@@ -141,7 +139,7 @@ position属性的默认值
 - 用来设置定位元素的层叠顺序（仅对定位元素有效）
   - 取值可以是 正整数、负整数、0
 
-[![voO0oD.png](D:\Users\veren\Desktop\Zeo_coder\demo\frond_end_study\CSS\布局\position.assets\voO0oD.png)](https://imgse.com/i/voO0oD)
+![image-20220904151704894](position.assets/image-20220904151704894.png)
 
 
 
