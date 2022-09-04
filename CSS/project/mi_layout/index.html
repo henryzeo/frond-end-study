@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小米官网</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/common.css">
+  <style>
+    .dress {
+      background-color: rgba(0, 0, 0, 0);
+      margin-top: 58px;
+    }
+
+    .dress .header .left-area {
+      float: left;
+    }
+    .dress .header .left-area .title {
+      margin-left: 15px;
+      font-size: 22px;
+      line-height: 58px;
+      color: #333;
+    }
+
+    .dress .header .right-area {
+      float: right;
+    }
+    .dress .header .right-area .tab-list {
+      margin-left: 30px;
+      font-size: 16px;
+      color: #424242;
+      line-height: 58px;
+    }
+    .dress .header .right-area .tab-list:hover {
+      color: #ff6700;
+      border-bottom: 2px solid #ff6700;
+    }
+
+    .dress .list {
+      margin-right: -14px;
+    }
+    .dress .list .item {
+      float: left;
+
+      width: 234px;
+      height: 300px;
+      margin: 0 0 14px 14px;
+
+      background-color: #fff;
+
+      /* 动画 */
+      transition: all 0.3s ease-in;
+    }
+    .dress .list .item:hover {
+      box-shadow: 0 15px 30px rgb(0 0 0 / 10%);
+      /* top: -2px; */
+      transform: translate3d(0,-2px,0);
+    }
+    .dress .list .item a {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+    }
+    .dress .list .item img {
+      display: block;
+      margin: 0 auto;
+      width: 160px;
+      height: 160px;
+    }
+    .dress .list .item.item1 {
+      height: 614px;
+    }
+    .dress .list .item.item8 {
+      height: 143px;
+    }
+    .dress .list .item.item1 img {
+      width: 234px;
+      height: 614px;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  
+  <div class="dress mi_wrapper">
+    <div class="header clear_fix">
+        <div class="left-area">
+          <h3 class="title">智能穿戴</h3>
+        </div>
+        <div class="right-area">
+          <a href="#" class="tab-list hot">热门</a>
+          <a href="#" class="tab-list wear">穿戴</a>
+        </div>
+    </div>
+    <div>
+      <ul class="list">
+        <li class="item item1">
+          <a href="#">
+          <img src="./images/mi_layout01.webp" alt="">
+          </a>
+        </li>
+        <li class="item item2">
+          <a href="#">
+            <img src="./images/mi_layout02.webp" alt="">
+          </a>
+        </li>
+        <li class="item item3">
+          <a href="#">
+            <img src="./images/mi_layout02.webp" alt="">
+          </a>
+        </li>
+        <li class="item item4">
+          <a href="#">
+            <img src="./images/mi_layout02.webp" alt="">
+          </a>
+        </li>
+        <li class="item item5">
+          <a href="#">
+            <img src="./images/mi_layout02.webp" alt="">
+          </a>
+        </li>
+        <li class="item item6">
+          <a href="#">
+            <img src="./images/mi_layout02.webp" alt="">
+          </a>
+        </li>
+        <li class="item item7">
+          <a href="#">
+            <img src="./images/mi_layout02.webp" alt="">
+          </a>
+        </li>
+        <li class="item item8">
+          <div>
+            浏览更多
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>
