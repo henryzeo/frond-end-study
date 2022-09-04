@@ -1,0 +1,70 @@
+.top {
+  height: 70px;
+  box-sizing: border-box;
+  background: #242424;
+  border-bottom: 1px solid #000;
+}
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  height: 69px;
+  line-height: 69px;
+  /* background: #f00; */
+
+}
+
+.topbar .bar-left {
+  display: flex;
+}
+
+.topbar .bar-left .logo {
+  background: url(../images/topbar_sprite.png);
+  background-position: 0 0;
+}
+.topbar .bar-left .logo a {
+  display: block;
+  width: 157px;
+  padding-right: 20px;
+  text-indent: -9999px;
+}
+
+.topbar .bar-left .list {
+  /* position: relative; */
+  display: flex;
+}
+
+.topbar .bar-left .list .item {
+  position: relative;
+  display: block;
+  font-size: 14px;
+  padding: 0 19px;
+  color: #ccc;
+}
+.topbar .bar-left .list .item:hover,
+.topbar .bar-left .list .item.active {
+  color: #fff;
+  background-color: #000;
+}
+
+.topbar .bar-left .list .item.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  width: 12px;
+  height: 7px;
+  margin-left: -6px;
+  background: url(../images/topbar_sprite.png);
+  background-position: -226px 0;
+}
+
+.topbar .bar-left .list .item .icon-hot {
+  position: absolute;
+  top: 21px;
+  /* left: 100px; */
+  right: -20px;
+  width: 28px;
+  height: 19px;
+  background: url(../images/topbar_sprite.png);
+  background-position: -190px 0;
+}
