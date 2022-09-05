@@ -7,8 +7,8 @@
 .topbar {
   display: flex;
   justify-content: space-between;
-  height: 69px;
-  line-height: 69px;
+  height: 70px;
+  line-height: 70px;
   /* background: #f00; */
 
 }
@@ -49,11 +49,12 @@
 .topbar .bar-left .list .item.active::after {
   content: "";
   position: absolute;
-  bottom: -1px;
+  top: 64px;
   left: 50%;
   width: 12px;
   height: 7px;
   margin-left: -6px;
+  overflow: hidden;
   background: url(../images/topbar_sprite.png);
   background-position: -226px 0;
 }
@@ -67,4 +68,92 @@
   height: 19px;
   background: url(../images/topbar_sprite.png);
   background-position: -190px 0;
+}
+
+.topbar .bar-right {
+  display: flex;
+  padding-right: 20px;
+}
+
+/* .topbar .bar-right .login {
+  display: flex;
+  align-items: center;
+} */
+
+.topbar .bar-right .login a {
+  color: #787878;
+}
+.topbar .bar-right .login:hover a {
+  color: #999;
+}
+
+.topbar .bar-right .login a:hover {
+  color: #787878;
+  text-decoration: underline;
+}
+
+.topbar .bar-right .auth a {
+  display: inline-block;
+  width: 90px;
+  height: 32px;
+  margin: 19px 20px 0 12px;
+  box-sizing: border-box;
+  padding-left: 16px;
+  border: 1px solid #4F4F4F;
+  line-height: 33px;
+  color: #ccc;
+  border-radius: 20px;
+}
+.topbar .bar-right .auth a:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+.topbar .bar-right .search {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 158px;
+  height: 32px;
+  margin-top: 19px;
+  border-radius: 32px;
+  background: #fff url(../images/topbar_sprite.png) 0 -99px;
+}
+
+.topbar .bar-right .search input {
+  font-size: 12px;
+  width: 118px;
+  line-height: 16px;
+  margin-right: 10px;
+}
+
+.nav {
+  height: 35px;
+  line-height: 35px;
+  box-sizing: border-box;
+  background-color: #C20C0C;
+  border-bottom: 1px solid #a40011;
+}
+
+.topnav .list {
+  display: flex;
+  margin-left: 180px;
+}
+
+.topnav .list .item {
+  display: inline-block;
+}
+.topnav .list .item span {
+  display: inline-block;
+  height: 20px;
+  padding: 0 13px;
+  margin: 7px 17px 0;
+  line-height: 21px;
+  color: #fff;
+  border-radius: 20px;
+}
+
+.topnav .list .item:hover span,
+.topnav .list .item.active span {
+  background-color: #9B0909;
 }
