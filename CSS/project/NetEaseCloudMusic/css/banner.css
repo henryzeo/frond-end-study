@@ -1,0 +1,108 @@
+.banner {
+  background: url(../images/banner_bg_04.jpg) center center / 6000px;
+}
+
+.banner .area {
+  position: relative;
+  height: 285px;
+  /* background: #0f0; */
+}
+
+/* 轮播图 图片列表 */
+.banner .area .area-left {
+  position: relative;
+  width: 730px;
+}
+
+.banner .area-left .img-list {
+  display: flex;
+  overflow: hidden;
+}
+
+.banner .area-left .img-list .item {
+  display: block;
+}
+
+.banner .area-left .img-list .item img {
+  width: 730px;
+  height: 285px;
+}
+
+/* 轮播图 选择器列表 */
+.banner .area-left .dots-list {
+  position: absolute;
+  bottom: 5px;
+  width: 730px;
+  display: flex;
+  justify-content: center;
+}
+
+.banner .area-left .dots-list li {
+  margin: 0 2px;
+}
+
+.banner .area-left .dots-list .item {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../images/banner_sprite.png);
+  background-position:  3px -343px;
+}
+
+.banner .area-left .dots-list .item:hover {
+  background-position: -16px -343px;
+}
+
+
+/* 下载 */
+.banner .area-right {
+  position: absolute;
+  right: -1px;
+  top: 0;
+  bottom: 0;
+  width: 254px;
+  background: url(../images/download_sprite.png) ;
+}
+
+.banner .area-right .download {
+  display: block;
+  width: 215px;
+  height: 56px;
+  margin: 186px 0 0 19px;
+  text-indent: -9999px;
+}
+.banner .area-right .download:hover {
+  background: url(../images/download_sprite.png) 0 -290px;
+}
+
+.banner .area-right p {
+  margin: 10px auto;
+  text-align: center;
+  color: #8d8d8d;
+}
+
+.banner .control {
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  width: 37px;
+  height: 63px;
+}
+
+.banner .control.left {
+  left: -68px;
+  background: url(../images/banner_sprite.png) 0 -360px;
+}
+.banner .control.left:hover {
+  background: url(../images/banner_sprite.png) 0 -430px;
+}
+
+.banner .control.right {
+  right: -68px;
+  background: url(../images/banner_sprite.png) 0 -508px;
+}
+.banner .control.right:hover {
+  background: url(../images/banner_sprite.png) 0 -578px;
+}
