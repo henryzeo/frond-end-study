@@ -79,6 +79,30 @@
   text-overflow: ellipsis;
 }
 
+.main .area-right .settle-singer .apply {
+  display: block;
+  height: 31px;
+  text-align: center;
+  margin-top: 14px;
+  padding-right: 5px;
+  line-height: 31px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background: url(../images/btn_sprite.png) right -100px;
+}
+.main .area-right .settle-singer .apply:hover {
+  background-position: right -182px;
+}
+
+.main .area-right .settle-singer .apply i {
+  display: block;
+  font-weight: 700;
+  background: url(../images/btn_sprite.png) 0 -59px;
+}
+.main .area-right .settle-singer .apply i:hover {
+  background-position: 0 -141px;
+}
+
 .main .area-right .dj {
   margin: 30px 20px 0;
 }
