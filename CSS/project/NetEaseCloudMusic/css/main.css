@@ -10,8 +10,25 @@
 
 .main .area-left {
   width: 729px;
+  padding: 20px 20px 40px;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* main 右边 */
 .main .area-right {
   width: 250px;
 }
@@ -80,24 +97,16 @@
 }
 
 .main .area-right .settle-singer .apply {
-  display: block;
   height: 31px;
-  text-align: center;
   margin-top: 14px;
-  padding-right: 5px;
-  line-height: 31px;
-  box-sizing: border-box;
-  border-radius: 4px;
-  background: url(../images/btn_sprite.png) right -100px;
+  background-position: right -100px;
 }
 .main .area-right .settle-singer .apply:hover {
   background-position: right -182px;
 }
-
 .main .area-right .settle-singer .apply i {
-  display: block;
   font-weight: 700;
-  background: url(../images/btn_sprite.png) 0 -59px;
+  background-position: 0 -59px;
 }
 .main .area-right .settle-singer .apply i:hover {
   background-position: 0 -141px;
@@ -111,23 +120,23 @@
   margin-top: 20px;
 }
 
-.main .area-right .dj .hot-dj-list .item {
+.main .area-right .hot-dj-list .item {
   display: flex;
   width: 210px;
   height: 50px;
 }
 
-.main .area-right .dj .hot-dj-list .item .info {
+.main .area-right .hot-dj-list .item .info {
   margin-left: 10px;
   width: 160px;
   line-height: 21px;
 }
 
-.main .area-right .dj .hot-dj-list .item .info .name:hover {
+.main .area-right .hot-dj-list .item .info .name:hover {
   text-decoration: underline;
 }
 
-.main .area-right .dj .hot-dj-list .item .info .desc {
+.main .area-right .hot-dj-list .item .info .desc {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
