@@ -1,4 +1,4 @@
-body, h1, h2, h3, h4, ul, li, p {
+body, h1, h2, h3, h4, ol, ul, li, p, dl, dd, dt {
   padding: 0;
   margin: 0;
 }
@@ -9,7 +9,7 @@ a {
   outline: none;
 }
 
-ul {
+ul, li, ol {
   list-style: none;
 }
 
