@@ -13,14 +13,89 @@
   padding: 20px 20px 40px;
 }
 
+.rcmd-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0;
+}
 
+.rcmd-list .item {
+  width: 140px;
+  margin-bottom: 30px;
+}
 
+.rcmd-list .cover {
+  position: relative;
+  display: flex;
+  width: 140px;
+  height: 140px;
+}
 
+.rcmd-list .cover .msk {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url(../images/coverall_sprite.png);
+}
 
+.rcmd-list .cover .bottom {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 0;
+  width: 100%;
+  height: 27px;
+  color: #ccc;
+  background: url(../images/coverall_sprite.png) 0 -537px;
+}
 
+.rcmd-list .cover .bottom::before {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 11px;
+  margin-left: 10px;
+  background: url(../images/iconall_sprite.png) 0 -24px;
+}
 
+.rcmd-list .cover .bottom .count {
+  margin-left: 29px;
+}
 
+.rcmd-list .cover .bottom .play {
+  position: absolute;
+  width: 16px;
+  height: 17px;
+  right: 10px;
+  background: url(../images/iconall_sprite.png) ;
+}
 
+.rcmd-list .cover .bottom .play:hover {
+  background-position: 0 -60px;
+}
+
+.rcmd-list .desc {
+  display: inline-block;
+  margin: 8px 0 4px;
+  font-size: 14px;
+  color: #000;
+}
+
+.rcmd-list .desc:hover {
+  text-decoration: underline;
+}
+
+.rcmd-list .desc .icon {
+  position: relative;
+  top: 3px;
+  display: inline-block;
+  width: 35px;
+  height: 15px;
+  margin-right: 3px;
+  background: url(../images/icon_sprite.png) -31px -658px;
+}
 
 
 
@@ -91,6 +166,7 @@
 
 .main .area-right .singer-list .item .info .desc {
   margin-top: 8px;
+  width: 90%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

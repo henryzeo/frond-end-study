@@ -17,20 +17,3 @@ body {
   width: 982px;
   margin: 0 auto;
 }
-
-.btn_sprite {
-  display: block;
-  height: 31px;
-  line-height: 31px;
-  text-align: center;
-  background: url(../images/btn_sprite.png);
-  box-sizing: border-box;
-  padding-right: 5px;
-  border-radius: 4px;
-}
-
-.btn_sprite i {
-  display: block;
-  /* margin-right: 5px; */
-  background: url(../images/btn_sprite.png);
-}
