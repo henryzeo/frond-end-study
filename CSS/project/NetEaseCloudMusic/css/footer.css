@@ -1,0 +1,94 @@
+.footer {
+  background-color: #f2f2f2;
+  height: 172px;
+  border-top: 1px solid #d3d3d3;
+}
+
+.foo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.foo .foo-left {
+  width: 535px;
+  padding-top: 15px;
+  line-height: 24px;
+  color: #666;
+}
+
+.foo .foo-left a {
+  color: #666;
+}
+
+.foo .foo-left a:hover {
+  text-decoration: underline;
+}
+
+.foo .foo-left .link a {
+  color: #999;
+}
+
+.foo .foo-left .link a:hover {
+  text-decoration: underline;
+}
+.foo .foo-left .link .line {
+  color: #c2c2c2;
+  margin: 0 2px 0 4px;
+}
+
+.foo .foo-left .owner {
+  margin-right: 14px;
+}
+
+.foo .foo-left .police{
+  margin-left: 5px;
+}
+.foo .foo-left .police-logo {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: url(../images/police_icon.png) no-repeat;
+  background-size: cover;
+}
+
+.foo .foo-left .license {
+  margin-right: 14px;
+}
+
+.foo .foo-right {
+  display: flex;
+  justify-content: space-between;
+  width: 420px;
+  margin-top: 33px;
+}
+
+.foo .foo-right .item {
+  width: 60px;
+  height: 70px;
+  text-align: center;
+}
+
+.foo .foo-right .logo {
+  display: inline-block;
+  width: 50px;
+  height: 45px;
+  background: url(../images/foot_enter_new.png) no-repeat;
+  background-size: 110px 552px;
+}
+
+.foo .foo-right .logo .logo-amped {
+  background-position: -63px -101px;
+}
+
+.foo .foo-right .tt {
+  display: inline-block;
+  width: 52px;
+  height: 14px;
+  margin: 5px 5px 0;
+  background: url(../images/foot_enter_tt.png) no-repeat;
+  background-size: 180px 139px;
+}
+
+.foo .foo-right .tt .tt-amped {
+  background-position: 0 -108px;
+}
