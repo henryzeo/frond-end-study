@@ -1,0 +1,79 @@
+.ost-box {
+  height: 41px;
+  border-bottom: 1px solid #f5f5f5;
+  /* background: red; */
+}
+
+.ost-inner {
+  display: flex;
+  justify-content: space-between;
+  width: 980px;
+  height: 41px;
+  margin: 0 auto;
+  padding: 0 5px;
+  line-height: 41px;
+  /* background: green; */
+}
+
+.ost-inner .box-left {
+  display: flex;
+}
+
+.ost-logo  {
+  width: 150px;
+  background: url(../img/ost-logo.png) top center no-repeat;
+  text-indent: -9999px;
+}
+
+.ost-logo a {
+  display: block;
+  height: 100%;
+}
+
+.ost-inner .box-right {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 10px;
+}
+
+.ost-inner .box-right h3 {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.ost-czsh {
+  position: relative;
+  padding-left: 30px;
+  margin-right: 20px;
+}
+
+.ost-czsh::before {
+  content: '';
+  background: url(../img/ost_title_sprite.png) -30px 0;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 5px;
+  left: 0;
+}
+
+.ost-czsh a:hover {
+  color: #ff4e00;
+}
+
+.ost-ranking {
+  position: relative;
+  padding-right: 30px;
+}
+
+.ost-ranking::after {
+  content: '';
+  background: url(../img/ost_title_sprite.png) 0 0;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 5px;
+  right: 3px;
+  opacity: .1;
+  transform: rotate(90deg);
+}
