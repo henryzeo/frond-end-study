@@ -1,11 +1,42 @@
+.width-heigh {
+  width: .pxToRem(100)[result];
+  height: 100px;
+}
+
+
 .container {
   width: 200px;
   height: 200px;
   background-color: red;
 
-  .box {
-    width: 100px;
-    height: 100px;
+  .box { // 嵌套
+    .width-heigh();  // Mixins 混入
     background-color: green;
+ 
+    &:hover {    // & 父选择器
+      background-color: white;
+    }
   }
 }
+
+.fontColor {
+  color: #999;
+}
+
+@fontSize: 24px;  // 定义属性
+
+.box2 {
+  &:extend(.fontColor); // 继承
+  font-size: @fontSize; // 使用属性
+}
+
+// 混入和映射结合
+.pxToRem(@px) {
+  result: (@px / @htmlFontSize) * 1rem
+}
+@htmlFontSize: 16px;
+
+// .box {
+//   width: .pxToRem(200)[result];
+//   font-size: .pxToRem(20)[result];
+// }
