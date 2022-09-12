@@ -1,0 +1,52 @@
+@import url(./variables.less);
+@import url(./mixin.less);
+
+.download {
+  display: flex;
+  height: 16vw;
+  border-bottom: .2667vw solid #e3e3e3;
+  background-color: #fff;
+
+  .download_left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    overflow: hidden;
+    .logo {
+      width: 10.6667vw;
+      height: 10.6667vw;
+      margin: 0 2.4vw 0 3.2vw;
+      border-radius: 2.13333vw;
+      box-shadow: 0 0 0.93333vw 0 rgba(0, 0, 0, .15);
+    }
+
+    .info {
+      flex: 1;
+      overflow: hidden;
+      .title {
+        font-size: @normalFontSize;
+        color: #333;
+        .nowrap();
+      }
+      .desc {
+        font-size:@smallFontSize;
+        color: #999;
+        .nowrap();
+      }
+    }
+
+  }
+
+  .download_btn {
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    width: 25.2vw;
+    text-align: center;
+    line-height: 16vw;
+    color: #fff;
+    font-size: @bigFontSize;
+    background-image: linear-gradient(90deg,#ff0409,#ff3162);
+  }
+}

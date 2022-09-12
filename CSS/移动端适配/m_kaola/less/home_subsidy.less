@@ -1,0 +1,95 @@
+@import url(./variables.less);
+
+.subsidy {
+  width: 93.6vw;
+  height: 44vw;
+  margin: 3.2vw;
+  box-sizing: border-box;
+  border-radius: 3.2vw;
+  background-color: #fff;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10.6667vw;
+    padding: 0 3.2vw;
+    .left {
+      display: flex;
+      .title {
+        width: 16.8vw;
+        height: 4.2667vw;
+      }
+      .countdown {
+        margin-left: 1.6vw;
+        .time {
+          display: inline-block;
+          width: 5.3333vw;
+          height: 4.2667vw;
+          line-height: 4.2667vw;
+          text-align: center;
+          padding: 0 .5333vw;
+          background: @mainColor;
+          border-radius: 0.8vw;
+          color: #fff;
+          font-size: @smallFontSize;
+          font-family: PingFangSC-Regular;
+        }
+        .split {
+          width: 2.4vw;
+          color: @mainColor;
+        }
+      }
+    }
+
+    .more {
+      position: relative;
+      padding-right: 1.2vw;
+      font-size: @smallFontSize;
+      color: @mainColor;
+    
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        width: 1.2vw;
+        height: 1.2vw;
+        border: 0.26667vw solid @mainColor;
+        border-left-color: transparent;
+        border-bottom-color: transparent;
+        transform: rotate(45deg);
+      }
+    }
+
+  }
+
+  .goodlist {
+    display: flex;
+    .item {
+      flex: 1;
+      text-align: center;
+      img {
+        width: 20.9333vw;
+      }
+      .price {
+        margin-bottom: 0.26667vw;
+        font-size: 2.6667vw;
+        color: @mainColor;
+        .curprice {
+          font-size: 4.2667vw;
+          font-weight: 700;
+        }
+      }
+      .oldPrice {
+        height: 4.4vw;
+        line-height: 4.4vw;
+        font-size: @smallFontSize;
+        text-decoration: line-through;
+        color: #999;
+      }
+
+    }
+  }
+}
