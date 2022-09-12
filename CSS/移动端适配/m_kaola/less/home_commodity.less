@@ -1,0 +1,77 @@
+@import url(../less/variables.less);
+
+.commodity {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2.6667vw;
+  .item {
+    width: 46.6667vw;
+    background-color: #fff;
+    margin-top: 1.3333vw;
+    &:nth-child(2n) {
+      margin-left: 1.3333vw;
+    }
+    img {
+      width: 46.6667vw;
+    }
+    .info {
+      padding: 1.3333vw;
+      .company {
+        margin-bottom: 1.0667vw;
+        text-indent: 4.8vw;
+        color: #999;
+        background: url(../img/home_commodity_company_01.png) no-repeat left center/4vw 4vw;
+      }
+      .desc {
+        color: #666;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+      .tags {
+        margin-top: 1.3333vw;
+        .tag {
+          position: relative;
+          height: 3.7333vw;
+          border: .2667vw solid @mainColor;
+          border-radius: 1.0667vw;
+          padding: 0 1.0667vw;
+          font-size: 2.6667vw;
+          color: @mainColor;
+
+          &.ticket {
+            padding-left: 22px;
+          }
+          
+          &.ticket::before {
+            content: "券";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            padding: 0 1.0667vw;
+            border-radius: 1.0667vw 0 0 1.0667vw;
+            line-height: 2.9333vw;
+            background-color: #ffe6e7;
+          }
+        }
+      }
+      .price {
+        margin-top: 1.3333vw;
+        color: @mainColor;
+        font-size: 2.9333vw;
+  
+        .keyword {
+          font-size: 4.8vw;
+        }
+      }
+    }
+    &.self .info .desc {
+      text-indent: 8vw;
+      background: url(../img/home_commodity_self.png) no-repeat 1.3333vw .8vw/6.9333vw 3.4667vw;
+    }
+  }
+}
