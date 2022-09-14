@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+
+  <script>
+    // 定义变量保存个人信息
+    var name = "zx"
+    var age = 18
+    var height = 1.88
+    var weight = 139
+    var address = "大连"
+
+    // 修改个人信息
+    age = 19
+    weight = 140
+    address = "杭州"
+
+    var currentName = "zx"
+    var admin = currentName
+
+    // 交换两个数
+    // 方法一
+    var num1 = 10
+    var num2 = 20
+    var temp = num1
+    num1 = num2
+    num2 = temp
+    // 方法二
+    console.log("交换前:num1, num2:", num1, num2)
+    num1 = num1 + num2
+    num2 = num1 - num2
+    num1 = num1 - num2
+    console.log("交换后:num1, num2:", num1, num2)
+
+    // 接受用户输入的值，并且用一个变量来保存
+    var inputVal = prompt("请输入：")
+    console.log(inputVal)
+
+    
+  </script>
+</body>
+</html>
