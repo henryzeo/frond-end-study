@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <script>
+
+    /*
+      头等公民
+      函数名作为变量, 它可以放在任何变量能放的地方
+      1. 返回值
+      2. 作为参数
+      3. 数组的值
+      4. 作为值, 赋给其他变量
+    */
+
+    function foo() {
+      console.log("I am foo ~~~")
+    }
+
+    function quz(fn) {
+      console.log(fn)
+      fn()
+    }
+
+    quz(foo)
+
+
+
+    var baz = function() {
+      console.log("I am baz ~~~~")
+    }
+
+
+    // 回调函数, 函数作为参数
+    function request(url, callback) {
+      console.log("浏览器接收到请求")
+      console.log(url, "正在被解析")
+      var result = ["Java", "JavaScript", "typescript"]
+      callback(result)
+    }
+
+    // 匿名函数
+    request("url", function(res) {
+      console.log("获取到以下结果:", res)
+    })  
+
+
+  </script>
+</body>
+</html>
