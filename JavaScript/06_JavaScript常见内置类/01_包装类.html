@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+    // Number
+    // var num = 3.1415926
+    // var n = 12
+    // var PI = Number.PI
+    // var num1 = num.toFixed(2); // 返回字符串类型  保留xx小数
+    // var num2 = n.toString(2); // 返回字符串类型  2进制;
+
+    // console.log(num1, typeof num1);
+    // console.log(num2, typeof num2);
+
+    // Math
+    // var pi = Math.PI;
+    // console.log(pi);
+
+    // var num1 = Math.floor(3.14);
+    // console.log(num1);
+    
+    // var num2 = Math.ceil(3.19);
+    // console.log(num2);
+
+    // var num3 = Math.round(3.16);
+    // console.log(num3);
+
+    // var num4 = Math.floor(Math.random() * 45) + 5;
+    // console.log(num4);
+
+    // for (var i = 0; i < 100; i++) {
+    //   var random = Math.floor(Math.random() * 45) + 5;
+    //   console.log(random);
+    // }
+
+    // var num = Math.pow(2, 3);
+    // console.log(num);
+
+    // String
+    var str = "Hello World";
+    // var str1 = str.slice(2, 4);
+    // console.log(str1)
+
+    // var str2 = str.split(" ");
+    // console.log(str2);
+
+    // console.log(str[1]);
+    // console.log(str.charAt(1));
+    // console.log(str[100]); // undefined
+    // console.log(str.charAt(100)); // "
+
+    // for (var i = 0; i < str.length; i++) {
+    //   // console.log(str[i]);
+    //   console.log(str.charAt(i));
+    // }
+
+    var str1 = str.toLowerCase()
+    console.log(str1)
+
+    var str2 = str.toUpperCase();
+    console.log(str2);
+
+    var zx = "my name is zx";
+    console.log(zx.indexOf("zx"));
+    console.log(zx.indexOf("is"));
+    console.log(zx.indexOf("mu"));
+    console.log(zx.includes("name"));
+
+    if (zx.indexOf("zx") != -1 ) {
+      console.log("哇哦, 你是zx呀")
+    } else {
+      console.log("what's you name?")
+    }
+    
+    if (zx.includes("zgx")) {
+      console.log("哇哦, 你是zx呀")
+    } else {
+      console.log("what's you name?")
+    }
+
+  </script>
+</body>
+</html>
