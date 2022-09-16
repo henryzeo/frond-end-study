@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    var names = ["james", "kobe", "curry", "zx"];
+    // for (var i = 0; i < names.length; i++) {
+    //   console.log(names[i]);
+    // }
+
+    // names.forEach(function(item, index, arr) {
+    //   console.log(">>>>>>>>>", item, index, arr);
+    // })
+
+    // 第一个版本
+    // function myForEach(fn) {
+    //   for (var i = 0; i < names.length; i++) {
+    //     fn(names[i], i, names)
+    //   }
+    // }
+
+    // myForEach(function (item, index, arr) {
+    //   console.log(">>>>>>>>", item, index, arr)
+    // })
+
+
+    // 第二个版本
+    // function myForEach(fn, arr) {
+    //   for (var i = 0; i < arr.length; i++) {
+    //     fn(arr[i], i, arr)
+    //   }
+    // }
+
+    // myForEach(function (item, index, arr) {
+    //   console.log(">>>>>>>>", item, index, arr)
+    // }, names)
+
+    // 第三个版本
+      // names.myForEach = function(fn) {
+      //   for (var i = 0; i < this.length; i++) {
+      //     fn(this[i], i, this)
+      //   }
+      // }
+
+      // names.myForEach(function(item, index, arr) {
+      //   console.log(">>>>>>>>", item, index, arr)
+      // })
+
+    // 第四个版本
+      Array.prototype.myForEach = function(fn) {
+        for (var i = 0; i < this.length; i++) {
+          fn(this[i], i, this)
+        }
+      }
+
+      names.myForEach(function(item, index, arr) {
+        console.log(">>>>>>>", item, index, arr)
+      })
+
+
+  </script>
+</body>
+</html>

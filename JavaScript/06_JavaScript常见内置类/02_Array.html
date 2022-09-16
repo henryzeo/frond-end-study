@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    // 创建数组
+    // 方法一：
+    // var arr = ["james", "kobe", "curry", "zx"];
+    // console.log(arr);
+
+    // 方法二：
+    // var arr1 = new Array();
+    // console.log(arr1);
+    // arr1.push("james");
+    // console.log(arr1);
+    // var arr2 = [3];
+    // console.log(arr2);
+    // var arr3 = new Array(3);
+    // console.log(arr3);
+    // var arr4 = new Array("james", "kobe", "curry", "zx");
+    // // console.log(arr4);
+    // arr4.pop();
+    // console.log(arr4);
+    // arr4.push("zx");
+    // console.log(arr4);
+
+    // arr4.pop();
+    // arr4.unshift("zx");
+    // console.log(arr4);
+
+    var arr = ["james", "kobe", "curry", "zx"];
+    console.log(arr);
+
+    var arr1 = arr.slice(2, 3);
+    console.log(arr1);
+
+    var arr2 = arr.concat("zml");
+    console.log(arr2);
+
+    var newArr = arr2.concat(["zzz", "xxx"], "zxzx");
+    console.log(newArr);
+
+    console.log(arr.join("*"));
+    
+
+    // for (var i = 0; i < arr.length; i++) {
+    //   console.log(arr[i]);
+    // }
+
+    // for (const index in arr) {
+    //   if (Object.hasOwnProperty.call(arr, index)) {
+    //     const el = arr[index];
+    //     console.log(el)
+    //   }
+    // }
+
+    // for (const item of arr) {
+    //   console.log(item);
+    // }
+
+  </script>
+</body>
+</html>
