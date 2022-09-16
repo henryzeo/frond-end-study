@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+    var student = [
+      {id: 100, age: 18, name: "zx", height: 1.88},
+      {id: 101, age: 30, name: "james", height: 2.09},
+      {id: 102, age: 27, name: "kobe", height: 1.98},
+      {id: 103, age: 22, name: "curry", height: 1.95},
+    ]
+
+    // var findStu = student.find(function(item, index, arr) {
+    //   // console.log(">>>>>>", item, index, arr)
+    //   return item.id === 101
+    // })
+    // console.log(findStu)
+
+    // 手动实现find
+    Array.prototype.myFind = function(fn) {
+      for (var i = 0; i < this.length; i++) {
+        var res = fn(this[i], i, this)
+        if (res) {
+          return this[i]
+        }
+      }
+    }
+
+    var findStu = student.myFind(function(item) {
+      console.log(item)
+      return item.id === 110
+    })
+
+    console.log(findStu)
+
+
+  </script>
+</body>
+</html>

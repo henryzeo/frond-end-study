@@ -18,6 +18,10 @@
     //   console.log(">>>>>>>>>", item, index, arr);
     // })
 
+    names.forEach((item, index, arr) => {
+      console.log(item, index, arr)
+    });
+
     // 第一个版本
     // function myForEach(fn) {
     //   for (var i = 0; i < names.length; i++) {
@@ -53,15 +57,15 @@
       // })
 
     // 第四个版本
-      Array.prototype.myForEach = function(fn) {
-        for (var i = 0; i < this.length; i++) {
-          fn(this[i], i, this)
-        }
-      }
+      // Array.prototype.myForEach = function(fn) {
+      //   for (var i = 0; i < this.length; i++) {
+      //     fn(this[i], i, this)
+      //   }
+      // }
 
-      names.myForEach(function(item, index, arr) {
-        console.log(">>>>>>>", item, index, arr)
-      })
+      // names.myForEach(function(item, index, arr) {
+      //   console.log(">>>>>>>", item, index, arr)
+      // })
 
 
   </script>
