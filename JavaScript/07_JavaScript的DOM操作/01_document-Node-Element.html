@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>我是h1元素</h1>
+
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ul>
+
+  <input type="text">
+  <button>提交</button>
+
+  <script>
+    var bodyEl = document.body // 获取body元素
+    console.log("body element>>>", bodyEl);
+    var htmlEl = document.documentElement // 获取html元素
+    console.log("html element>>>", htmlEl)
+    var bodyChildNode = bodyEl.childNodes[0]  // 第一个子节点
+    console.log("first children node>>>", bodyChildNode)
+
+    var bodyChild = bodyEl.children // 所有元素
+    console.log("children elements>>>", bodyChild)
+
+    var childElement = bodyEl.childNodes // 所有子节点
+    console.log("children nodes>>>", childElement)
+
+    var bodyFirstNode = bodyEl.firstChild // 第一个节点
+    console.log("first children>>>", bodyFirstNode)
+
+    var h1El = bodyEl.firstElementChild
+    console.log("first children element>>>", h1El)
+
+    var ulEl = h1El.nextElementSibling
+    console.log("second children element", ulEl)
+
+    var ulChild = ulEl.firstElementChild
+    console.log("ul element children>>>", ulChild)
+
+    var nextChild = h1El.nextSibling
+    console.log(nextChild)
+
+    var preChild = h1El.parentElement
+    console.log(preChild)
+
+
+
+
+
+    var nextnode = h1El.nextElementSibling
+    console.log(nextnode)
+
+  </script>
+</body>
+</html>
