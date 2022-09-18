@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div class="box">
+    box
+    <h1>h1</h1>
+  </div>
+  
+
+  <script>
+
+    var boxEl = document.querySelector(".box")
+    var boxTet = boxEl.firstChild
+    var boxH1El = boxEl.firstElementChild
+    console.log(boxTet.nodeName)
+    console.log(boxTet.tagName)
+
+    // 设置文本 data、nodeValue  innerHTML，textContent
+    // boxEl.innerHTML = "<h1>jhhhhhhhh</h1>"
+
+    // data/nodeValue 针对元素
+    boxTet.data = "aaaa"
+    boxTet.nodeValue = "aaaaaaaaa"
+
+  </script>
+</body>
+</html>
