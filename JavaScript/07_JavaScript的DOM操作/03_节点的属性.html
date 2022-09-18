@@ -19,8 +19,8 @@
     var boxEl = document.querySelector(".box")
     var boxTet = boxEl.firstChild
     var boxH1El = boxEl.firstElementChild
-    console.log(boxTet.nodeName)
-    console.log(boxTet.tagName)
+    // console.log(boxTet.nodeName)
+    // console.log(boxTet.tagName)
 
     // 设置文本 data、nodeValue  innerHTML，textContent
     // boxEl.innerHTML = "<h1>jhhhhhhhh</h1>"
@@ -28,6 +28,15 @@
     // data/nodeValue 针对元素
     boxTet.data = "aaaa"
     boxTet.nodeValue = "aaaaaaaaa"
+
+    console.log(document.children)
+    console.log(document.childNodes)
+    console.log(document.documentElement)
+    console.log(document.body.childNodes)
+
+    console.log(document.getElementsByTagName("div"))
+    console.log(document.getElementsByClassName("box"))
+
 
   </script>
 </body>

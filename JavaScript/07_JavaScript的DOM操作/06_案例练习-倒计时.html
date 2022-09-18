@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .countdown {
+      font-size: 20px;
+    }
+
+    .countdown .time {
+      display: inline-block;
+      padding: 5px;
+      color: #fff;
+      background-color: #f00;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="countdown">
+    <span class="time hour">12</span>
+    <span class="split">:</span>
+    <span class="time minute">20</span>
+    <span class="split">:</span>
+    <span class="time second">30</span>
+  </div>
+
+  <script src="./js/format.js"></script>
+  <script>
+
+    function getCurTime() {
+      var curDate = new Date()
+      var intervalTime = (endDate.getTime() - curDate.getTime()) / 1000
+      // console.log(intervalTime)
+
+      // hour minute second
+      var hour = Math.floor(intervalTime / 3600)
+      var minute = Math.floor(intervalTime / 60) % 60
+      var second = Math.floor(intervalTime % 60)
+
+      hourEl.textContent = formatPadLeft(hour)
+      minuteEl.textContent = formatPadLeft(minute)
+      secondEl.textContent = formatPadLeft(second)
+    }
+
+    var hourEl = document.querySelector(".hour")
+    var minuteEl = document.querySelector(".minute")
+    var secondEl = document.querySelector(".second")
+    var endDate = new Date()
+    endDate.setHours(24)
+    endDate.setMinutes(0)
+    endDate.setSeconds(0)
+    endDate.setMilliseconds(0)
+
+    getCurTime()
+
+    setInterval(function () {
+      getCurTime()
+    }, 1000)
+
+  </script>
+</body>
+
+</html>
