@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button data-action="remove">删除</button>
+  <button data-action="add">添加</button>
+  <button data-action="search">搜索</button>
+  <button data-action="s11">其他</button>
+
+  <script>
+    var btnEls = document.querySelectorAll("button")
+    for (const item of btnEls) {
+      item.onclick = function() {
+        switch(item.dataset.action) {
+          case "remove":
+            console.log("点击了删除按钮~")
+            break
+          case "add":
+            console.log("点击了添加按钮~")
+            break
+          case "search":
+            console.log("点击了搜索按钮~")
+            break
+          default:
+            console.log("点击了其他按钮~")
+        }
+      }
+    }
+  </script>
+</body>
+</html>

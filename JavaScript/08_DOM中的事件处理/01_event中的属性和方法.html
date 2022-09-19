@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: orange;
+    }
+    span {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="box">
+    <span>
+      <button>按钮</button>
+    </span>
+  </div>
+
+  <script>
+    var divEl = document.querySelector(".box")
+    var spanEl = document.querySelector("span")
+    var btnEl = document.querySelector("button")
+
+    // onclick 监听：只同时监听一个事件
+    // divEl.onclick = function() {
+    //   console.log("div发生了点击~冒泡")
+    // }
+    // spanEl.onclick = function() {
+    //   console.log("span发生了点击~冒泡")
+    // }
+    // btnEl.onclick = function() {
+    //   console.log("button发生了点击~冒泡")
+    // }
+
+    // addEventListener
+    divEl.addEventListener("click", function() {
+      console.log("div发生了点击~捕获")
+    }, true) // 监听捕获事件
+    spanEl.addEventListener("click", function() {
+      console.log("span发生了点击~捕获")
+    }, true) // 监听捕获事件
+    btnEl.addEventListener("click", function() {
+      console.log("button发生了点击~捕获")
+    }, true) // 监听捕获事件
+
+
+    divEl.onclick = function(event) {
+      console.log(event.target)
+      console.log(event.currentTarget)
+      console.log("div发生了点击~冒泡")
+    }
+    spanEl.onclick = function() {
+      event.stopPropagation()
+      console.log("span发生了点击~冒泡")
+    }
+    btnEl.onclick = function() {
+      console.log("button发生了点击~冒泡")
+    }
+
+  </script>
+</body>
+</html>
