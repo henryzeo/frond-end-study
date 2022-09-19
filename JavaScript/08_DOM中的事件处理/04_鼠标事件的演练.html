@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 200px;
+      background-color: orange;
+    }
+
+    .box button {
+
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <button>删除</button>
+    <button>添加</button>
+    <button>搜索</button>
+  </div>
+
+  <script>
+    // var btnEls = document.querySelectorAll("button")
+    // for (const btnEl of btnEls) {
+    //   // console.log(btnEl.textContent)
+    //   btnEl.oncontextmenu = function(event) {
+    //     console.log(btnEl.textContent)
+    //     event.preventDefault()
+    //   }
+
+    //   // mouseover mouseenter  效果相同
+    //   btnEl.onmouseover = function() {
+    //     console.log("mouseover", btnEl.textContent)
+    //   }
+    //   btnEl.onmouseout = function() {
+    //     console.log("mouseout", btnEl.textContent)
+    //   }
+    //   // btnEl.onmouseenter = function() {
+    //   //   console.log("mouseenter", btnEl.textContent)
+    //   // }
+    //   // btnEl.onmouseleave = function() {
+    //   //   console.log("mouseleave", btnEl.textContent)
+    //   // }
+    // }
+
+    // var divEl = document.querySelector(".box")
+    // divEl.onmouseover = function(event) {
+    //   event.target !== divEl && console.log("mouseover", event.target.textContent)
+    // }
+    // divEl.onmouseout = function(event) {
+    //   event.target !== divEl && console.log("mouseout", event.target.textContent)
+    // }
+
+    // mouseenter mouseleave 不支持冒泡---无法使用事件委托
+    var divEl = document.querySelector(".box")
+    divEl.onmouseenter = function(event) {
+      event.target !== divEl && console.log("mouseenter", event.target.textContent)
+    }
+    divEl.onmouseleave = function(event) {
+      event.target !== divEl && console.log("mouseleave", event.target.textContent)
+    }
+
+    var divEl = document.querySelector(".box")
+    divEl.onmouseenter = function(event) {
+      console.log("mouseenter", this)
+    }
+    divEl.onmouseleave = function(event) {
+      console.log("mouseleave", this)
+    }
+    var divEl = document.querySelector(".box")
+    divEl.onmouseover = function(event) {
+      console.log("mouseover", this)
+    }
+    divEl.onmouseout = function(event) {
+      console.log("mouseout", this)
+    }
+
+
+
+
+
+
+ 
+  </script>
+</body>
+</html>
