@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <button class="out">取消setTimeout定时器</button>
+  <button class="itv">取消setInterval定时器</button>
+
+  <script>
+    var timeoutId = setTimeout(function() {
+      console.log("执行timeout定时器~")
+    }, 3000)
+
+    var out = document.querySelector(".out")
+    out.onclick = function() {
+      clearTimeout(timeoutId)
+    }
+
+    var itvId = setInterval(function() {
+      console.log("执行interval定时器~")
+    }, 3000)
+
+    var itv = document.querySelector(".itv")
+    itv.onclick = function() {
+      clearInterval(itvId)
+    }
+  </script>
+</body>
+</html>
