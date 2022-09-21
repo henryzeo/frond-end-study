@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    var obj = {
+      name: "zx",
+      age: 18,
+      friends: {
+        name: "kobe"
+      },
+      toJSON: function() {
+        return "123"
+      }
+    }
+
+    var jsonStr = JSON.stringify(obj)
+    console.log(jsonStr)
+
+    var bar = JSON.parse(jsonStr)
+    console.log(bar)
+
+  </script>
+</body>
+</html>

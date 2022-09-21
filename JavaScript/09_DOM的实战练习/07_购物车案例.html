@@ -108,10 +108,11 @@
       deleteEl.onclick = function() {
         
         var deleteTr = this.parentElement.parentElement
-        var deleteId = deleteTr.children[0].textContent - 1
+        var deleteId = deleteTr.sectionRowIndex
         deleteTr.remove()
 
         books.splice(deleteId, 1)
+        
         calcSumPrice()
         
       }
