@@ -157,22 +157,60 @@
   <script>
     var titleEl = document.querySelector(".title-list")
     var activeItem = document.querySelector(".active")
+    var bannerEl = document.querySelector(".banner")
     var imageList = document.querySelector(".image-list")
+    var curImageId = 0
+    var timeId = 0
+    var itemEl = null
+
+    // 给title添加鼠标监听
     titleEl.addEventListener("mouseover", function(event) {
-      activeItem.classList.remove("active")
 
-      activeItem = event.target.parentElement
-
-      activeItem.classList.add("active")
-
-      var index = Array.from(titleEl.children).findIndex((element) => {
-        return activeItem === element
-      })
+      // title
+      itemEl = event.target.parentElement
       
+      // 图片
+      var index = Array.from(titleEl.children).findIndex((element) => {
+        return itemEl === element
+      })
+      curImageId = index
 
-      imageList.style.transform = `translateX(${-604 * index}px)`
-      imageList.style.transition = "all 300ms ease"
+      switchItem(curImageId)
     })
+
+    // 添加定时器
+    startTimeout()
+
+    // banner添加监听事件，控制自动轮播
+    bannerEl.addEventListener("mouseenter", function() {
+      clearTimeout(timeId)
+    })
+    bannerEl.addEventListener("mouseleave", function() {
+      startTimeout()
+    })
+
+    function switchItem(num) {
+      imageList.style.transform = `translateX(${-604 * num}px)`
+      imageList.style.transition = "all 300ms ease"
+      
+      activeItem.classList.remove("active") 
+      var curItemEl = titleEl.children[num]
+      curItemEl.classList.add("active")
+
+      activeItem = curItemEl
+    }
+
+    function startTimeout() {
+      timeId = setInterval(function() {
+
+      // 图片
+      curImageId++
+      if (curImageId === imageList.children.length) curImageId = 0
+
+      switchItem(curImageId)
+
+      }, 3000);
+    }
 
   </script>
 </body>

@@ -105,7 +105,7 @@
       iconEls[i].style.backgroundPosition = `-48px -${50 * i}px`
     }
 
-    function setWidth(num) {
+    function setWidth(event, num) {
       if (event.target.classList.contains("name")) {
         event.target.style.width = `${num}px`
       } else {
@@ -114,27 +114,27 @@
     }
 
     // 事件委托 实现
-    // var toolBarEls = document.querySelector(".tool-bar")
-    // toolBarEls.onmouseover = function(event) {
-    //   setWidth(62)
-    // }
-    // toolBarEls.onmouseout = function(event) {
-    //   setWidth(0)
-    // }
+    var toolBarEls = document.querySelector(".tool-bar")
+    toolBarEls.onmouseover = function(event) {
+      setWidth(event, 62)
+    }
+    toolBarEls.onmouseout = function(event) {
+      setWidth(event, 0)
+    }
 
     // 正常 实现
-    for(var item of itemEls) {
-      item.onmouseover = function() {
-        var nameEl = this.children[1]
-        console.log(nameEl)
-        nameEl.style.width = "62px"
-      }
-      item.onmouseout = function() {
-        var nameEl = this.children[1]
-        console.log(nameEl)
-        nameEl.style.width = "0px"
-      }
-    }
+    // for(var item of itemEls) {
+    //   item.onmouseover = function() {
+    //     var nameEl = this.children[1]
+    //     console.log(nameEl)
+    //     nameEl.style.width = "62px"
+    //   }
+    //   item.onmouseout = function() {
+    //     var nameEl = this.children[1]
+    //     console.log(nameEl)
+    //     nameEl.style.width = "0px"
+    //   }
+    // }
 
 
   </script>
