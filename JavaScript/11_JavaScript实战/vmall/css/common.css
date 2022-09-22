@@ -1,0 +1,12 @@
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, 'Microsoft Yahei',
+  'Hiragino Sans GB', 'Heiti SC', 'WenQuanYi Micro Hei', sans-serif !important;
+  font-size: 14px;
+  color: #333;
+  background-color: #F1F3F5;
+}
+
+.wrapper {
+  width: 1200px;
+  margin: 0 auto;
+}

@@ -1,0 +1,110 @@
+.wrapper .crumbs {
+  height: 63px;
+  line-height: 63px;
+  font-size: 12px;
+}
+
+.wrapper .crumbs .crumbs-item {
+  cursor: pointer;
+}
+.wrapper .crumbs-item:last-child {
+  color: #000;
+}
+
+.wrapper .crumbs .split {
+  opacity: 0.9;
+}
+
+.operation {
+  background-color: #fff;
+  padding-left: 10px;
+}
+
+.operation > .row {
+  display: flex;
+  height: 48px;
+  line-height: 48px;
+  
+}
+
+.operation > .row .item {
+  width: 104px;
+  height: 48px;
+  cursor: pointer;
+}
+
+.operation > .row .item:first-child {
+  color: #999;
+  cursor: auto;
+}
+
+.operation > .row .active {
+  color: red;
+}
+
+.products {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.products .item {
+  width: 291px;
+  height: 387px;
+  margin-top: 14px;
+  background-color: #fff;
+}
+
+.products .item a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.products .item .ablum {
+  width: 180px;
+  height: 180px;
+  margin: 30px 0;
+}
+
+.products .item .name {
+  font-weight: 700;
+  margin: 10px 0 4px;
+}
+
+.products .item .desc {
+  font-size: 13px;
+  color: #999;
+}
+
+.products .item .price {
+  margin-top: 12px;
+}
+
+.products .item .new-price {
+  font-size: 16px;
+  color: red;
+}
+.products .item .old-price {
+  font-size: 12px;
+  text-decoration: line-through;
+  color: #666;
+}
+
+.products .item .coupons .tip {
+  display: inline-block;
+  justify-content: space-between;
+  padding: 1px 3px;
+  margin: 8px 0 0 5px;
+  font-size: 12px;
+  border: 1px solid red;
+  border-radius: 3px;
+  color: red;
+}
+
+.products .item .commont {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: #999;
+}

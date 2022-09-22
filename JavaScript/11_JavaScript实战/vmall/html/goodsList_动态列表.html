@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>商品列表</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/goodsList.css">
+</head>
+<body>
+  <div class="wrapper">
+    <!-- 面包屑导航 -->
+    <div class="crumbs">
+      <span class="crumbs-item">首页</span>
+      <span class="split">&gt;</span>
+      <span class="crumbs-item">手机</span>
+    </div>
+
+    <!-- 对内容进行操作 -->
+    <div class="operation">
+      <ul class="row category">
+        <li class="item">分类：</li>
+        <li class="item">笔记本</li>
+        <li class="item">台式机</li>
+        <li class="item">智慧屏</li>
+      </ul>
+      <ul class="row discount">
+        <li class="item">服务优惠：</li>
+        <li class="item">仅看有货</li>
+        <li class="item">分期免息</li>
+        <li class="item">优惠商品</li>
+      </ul>
+      <ul class="row sort">
+        <li class="item">排序：</li>
+        <li class="item active">综合</li>
+        <li class="item">好评</li>
+        <li class="item">评论数</li>
+        <li class="item">价格</li>
+      </ul>
+    </div>
+
+    <!-- 商品列表 -->
+    <ul class="products">
+      <li class="item">
+        <a href="#">
+          <img class="ablum" src="../img/product_computer_01.webp" alt="">
+          <span class="name">HUAWEI MateBook 14/14s</span>
+          <span class="desc">AMD锐龙R5 5500U</span>
+          <div class="price">
+            <span class="new-price">￥4599</span>
+            <span class="old-price">￥4999</span>
+          </div>
+          <div class="coupons">
+            <span class="tip">限时直降400元</span>
+            <span class="tip">3期免息</span>
+            <span class="tip">赠积分</span>
+          </div>
+          <div class="commont">
+            <span>4153人评价</span>
+            <span>95% 好评</span>
+          </div>
+        </a>
+      </li>
+    </ul>
+
+  </div>
+
+  <script src="../json/product_data.js"></script>
+  <script>
+    // 资源服务器地址
+    var baseURL = "https://res.vmallres.com/pimages"
+
+    // 添加item
+    var productEl = document.querySelector(".products")
+    console.log(productEl)
+    for (const item of resultList) {
+      var itemEl = document.createElement("li")
+      itemEl.classList.add("item")
+      productEl.append(itemEl)
+
+      var aEl = document.createElement("a")
+      aEl.href = "#"
+      itemEl.append(aEl)
+
+      var ablumEl = document.createElement("img")
+      ablumEl.classList.add("ablum")
+      ablumEl.src = `${baseURL}${item.photoPath}428_428_${item.photoName}`
+      aEl.append(ablumEl)
+
+      var nameEl = document.createElement("span")
+      nameEl.classList.add("name")
+      nameEl.textContent = `${item.briefName}`
+      aEl.append(nameEl)
+
+      var descEl = document.createElement("span")
+      descEl.classList.add("desc")
+      descEl.textContent = `${item.name}`
+      aEl.append(descEl)
+
+      var priceEl = document.createElement("div")
+      priceEl.classList.add("price")
+      var newPriceEl = document.createElement("span")
+      newPriceEl.classList.add("new-price")
+      newPriceEl.textContent = `￥${item.promoPrice ? item.promoPrice : item.price}`
+      priceEl.append(newPriceEl)
+      var oldPriceEl = document.createElement("span")
+      oldPriceEl.classList.add("old-price")
+      oldPriceEl.textContent = `￥${item.price}`
+      priceEl.append(oldPriceEl)
+      aEl.append(priceEl)
+
+      var couponsEl = document.createElement("div")
+      couponsEl.classList.add("coupons")
+      for (const label of item.promoLabels) {
+        var labelEl = document.createElement("span")
+        labelEl.classList.add("tip")
+        labelEl.textContent = label
+        couponsEl.append(labelEl)
+      }
+      aEl.append(couponsEl)
+
+      var commentEl = document.createElement("div")
+      commentEl.classList.add("commont")
+      var countEl = document.createElement("span")
+      countEl.textContent = `${item.rateCount}人评论`
+      commentEl.append(countEl)
+      var goodEl = document.createElement("span")
+      goodEl.textContent = ` ${item.goodRate}% 好评`
+      commentEl.append(goodEl)
+      aEl.append(commentEl)
+
+
+    }
+  </script>
+</body>
+</html>
