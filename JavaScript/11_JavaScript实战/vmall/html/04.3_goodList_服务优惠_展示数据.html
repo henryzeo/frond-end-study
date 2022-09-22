@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>商品列表</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/goodsList.css">
+</head>
+<body>
+  <div class="wrapper">
+    <!-- 面包屑导航 -->
+    <div class="crumbs">
+      <span class="crumbs-item">首页</span>
+      <span class="split">&gt;</span>
+      <span class="crumbs-item">手机</span>
+    </div>
+
+    <!-- 对内容进行操作 -->
+    <div class="operation">
+      <ul class="row category">
+        <li class="item">分类：</li>
+        <li class="item">笔记本</li>
+        <li class="item">台式机</li>
+        <li class="item">智慧屏</li>
+      </ul>
+      <ul class="row discount">
+        <li class="item">服务优惠：</li>
+        <li class="item">仅看有货</li>
+        <li class="item">分期免息</li>
+        <li class="item">优惠商品</li>
+      </ul>
+      <ul class="row sort">
+        <li class="item">排序：</li>
+        <li class="item active">综合</li>
+        <li class="item">好评</li>
+        <li class="item">评论数</li>
+        <li class="item">价格</li>
+      </ul>
+    </div>
+
+    <!-- 商品列表 -->
+    <ul class="products">
+      <li class="item">
+        <a href="#">
+          <img class="ablum" src="../img/product_computer_01.webp" alt="">
+          <span class="name">HUAWEI MateBook 14/14s</span>
+          <span class="desc">AMD锐龙R5 5500U</span>
+          <div class="price">
+            <span class="new-price">￥4599</span>
+            <span class="old-price">￥4999</span>
+          </div>
+          <div class="coupons">
+            <span class="tip">限时直降400元</span>
+            <span class="tip">3期免息</span>
+            <span class="tip">赠积分</span>
+          </div>
+          <div class="commont">
+            <span>4153人评价</span>
+            <span>95% 好评</span>
+          </div>
+        </a>
+      </li>
+    </ul>
+
+  </div>
+
+  <script src="../json/product_data.js"></script>
+  <script>
+    // 资源服务器地址
+    var baseURL = "https://res.vmallres.com/pimages"
+
+    // 添加item
+    showGoodsList(resultList)
+    
+
+    // 监听服务优惠选项
+    var couponsEls = document.querySelector(".discount")
+    var activeDiscountList = []
+    couponsEls.onclick = function(event) {
+      var curTarget = event.target
+      if (curTarget.textContent !== "服务优惠："){
+        curTarget.classList.toggle("active")
+      }
+      if (curTarget.classList.contains("active")) {
+        activeDiscountList.push(curTarget.textContent)
+      } else {
+        var index = activeDiscountList.findIndex(function(item) {
+          return item === curTarget.textContent.trim()
+        })
+        activeDiscountList.splice(index, 1)
+      }
+
+      var updateGoodsList = resultList
+      updateGoodsList = resultList.filter(fliterDiscount)
+      // console.log(updateGoodsList)
+
+      showGoodsList(updateGoodsList)
+    }
+
+    function fliterDiscount(item) {
+        var flag = true
+        for (const activeDiscount of activeDiscountList) {
+          if ( !item.services.includes(activeDiscount) ) {
+            flag = false
+            break
+          }
+        }
+        return flag
+      }
+
+    function showGoodsList(list) {
+      var productEl = document.querySelector(".products")
+      productEl.innerHTML = ``
+      for (const item of list) {
+
+        var itemEl = document.createElement("li")
+        itemEl.classList.add("item")
+
+        var couponsStr = ""
+        for (const label of item.services) {
+          couponsStr += `<span class="tip">${label}</span>`
+        }
+
+        itemEl.innerHTML = `
+          <a href="#">
+            <img class="ablum" src="${baseURL}${item.photoPath}428_428_${item.photoName}" alt="">
+            <span class="name">${item.briefName}</span>
+            <span class="desc">${item.name}</span>
+            <div class="price">
+              <span class="new-price">￥${item.promoPrice ? item.promoPrice : item.price}</span>
+              <span class="old-price">￥${item.price}</span>
+            </div>
+            <div class="coupons">
+              ${couponsStr}
+            </div>
+            <div class="commont">
+              <span>${item.rateCount}人评论</span>
+              <span>${item.goodRate}% 好评</span>
+            </div>
+          </a>
+        `
+        productEl.append(itemEl)
+      }
+    }
+
+  </script>
+</body>
+</html>
