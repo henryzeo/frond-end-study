@@ -103,6 +103,7 @@
       showGoodsList(updateGoodsList)
     }
 
+    // 依据服务优惠对商品列表进行过滤
     function fliterDiscount(item) {
         var flag = true
         for (const activeDiscount of activeDiscountList) {
@@ -114,6 +115,7 @@
         return flag
       }
 
+    // 显示商品列表的逻辑
     function showGoodsList(list) {
       var productEl = document.querySelector(".products")
       productEl.innerHTML = ``
@@ -153,19 +155,24 @@
     }
 
     // 排序
+    // 监听排序条件的点击
     sortEls.onclick = function(event) {
+      // 获取当前发生点击事件
       var activeTarget = event.target
+      // 设置条件样式显示
       if (activeTarget.textContent !== "排序：") {
         activeSort.classList.remove("active")
         activeTarget.classList.add("active")
         activeSort = activeTarget
       }
+      // 根据条件对数据进行排序
       sortCondition(activeTarget.textContent)
 
       // 展示数据
       showGoodsList(sortResultList)
     }
 
+    // 根据条件对数据进行排序的逻辑
     function sortCondition(condition) {
 
       switch (condition) {

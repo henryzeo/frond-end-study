@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>轮播图</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/cycleImage.css">
+</head>
+
+<body>
+  <!-- 轮播图 -->
+  <div class="banner">
+    <ul class="banner__images">
+      <!-- <li class="banner__img banner_img--on">
+          <img src="../img/banner_01.webp" alt="">
+        </li>
+        <li class="banner__img">
+          <img src="../img/banner_01.webp" alt="">
+        </li>
+        <li class="banner__img">
+          <img src="../img/banner_01.webp" alt="">
+        </li>
+        <li class="banner__img">
+          <img src="../img/banner_01.webp" alt="">
+        </li>
+        <li class="banner__img">
+          <img src="../img/banner_01.webp" alt="">
+        </li> -->
+    </ul>
+    <div class="banner__contral">
+      <button class="banner__previous">上一个</button>
+      <button class="banner__next">下一个</button>
+    </div>
+  </div>
+
+  <script src="../json/banner_data.js"></script>
+  <script>
+    var baseURL = "https://res.vmallres.com/"
+    var bannerEl = document.querySelector(".banner")
+    var imagesEl = document.querySelector(".banner__images")
+    var contralEl = document.querySelector(".banner__contral")
+    var curImageEl = null
+    var preImageEl = null
+    var curIndex = 0
+    var preIndex = 0
+    var timeId = 0
+
+    // 动态生成li
+    for (var i = 0; i < banners.length; i++) {
+      var itemEl = document.createElement("li")
+      itemEl.classList.add("banner__img")
+      if (i === 0) {
+        itemEl.classList.add("banner__img--on")
+        curImageEl = itemEl
+      }
+      var imgEl = document.createElement("img")
+      imgEl.src = `${baseURL}${banners[i].imgUrl}`
+      itemEl.append(imgEl)
+      imagesEl.append(itemEl)
+    }
+
+    // 监听control按钮
+    contralEl.addEventListener("click", function (event) {
+      var curBtn = event.target
+
+      if (curBtn.classList.contains("banner__previous")) {
+        preIndex = curIndex
+        curIndex--
+        if (curIndex === -1) {
+          curIndex = banners.length - 1
+        }
+
+        switchBannerItem()
+        // console.log("pre:", preIndex)
+        // console.log("cur:", curIndex)
+      } else if (curBtn.classList.contains("banner__next")) {
+        preIndex = curIndex
+        curIndex++
+        if (curIndex === banners.length) {
+          curIndex = 0
+        }
+
+        switchBannerItem(preIndex, curIndex)
+        // console.log("pre:", preIndex)
+        // console.log("cur:", curIndex)
+      }
+    })
+
+    startAutoCycle()
+
+    // 监听banner， 鼠标进入banner中停止自动轮播
+    // 鼠标移除banner后开启自动轮播
+    bannerEl.addEventListener("mouseenter", function () {
+      clearInterval(timeId)
+    })
+    bannerEl.addEventListener("mouseleave", function () {
+      startAutoCycle()
+    })
+
+    // 手动切换banner逻辑
+    function switchBannerItem(pre, cur) {
+      curImageEl = imagesEl.children[cur]
+      preImageEl = imagesEl.children[pre]
+      preImageEl.classList.remove("banner__img--on")
+      curImageEl.classList.add("banner__img--on")
+    }
+
+    // 自动轮播逻辑
+    function startAutoCycle() {
+      timeId = setInterval(function () {
+        curImageEl.classList.remove("banner__img--on")
+        curIndex++
+        if (curIndex === banners.length) {
+          curIndex = 0
+        }
+        curImageEl = imagesEl.children[curIndex]
+        curImageEl.classList.add("banner__img--on")
+      }, 3000)
+    }
+
+
+  </script>
+
+</body>
+
+</html>
