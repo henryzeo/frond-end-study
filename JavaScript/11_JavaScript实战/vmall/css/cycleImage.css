@@ -1,5 +1,5 @@
 .banner {
-  
+  position: relative;
 }
 .banner__images {
   position: relative;
@@ -22,4 +22,25 @@
   transform: translate(-50%);
   left: 50%;
   width: 1920px;
+}
+.banner__indicator {
+  position: absolute;
+  display: flex;
+  left: 0;
+  right: 0;
+  bottom: 50px;
+  justify-content: center;
+}
+.banner__selector {
+  width: 8px;
+  height: 8px;
+  margin: 0 10px;
+  border-radius: 50%;
+  background-color: #aaa;
+  cursor: pointer;
+}
+.banner__selector--active {
+  /* width: 16px;
+  border-radius: 10px; */
+  background-color: red;
 }
