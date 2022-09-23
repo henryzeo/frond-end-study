@@ -68,6 +68,7 @@
   </div>
 
   <script src="../json/product_data.js"></script>
+  <script src="../js/utils.js"></script>
   <script>
     // 资源服务器地址
     var baseURL = "https://res.vmallres.com/pimages"
@@ -128,7 +129,7 @@
           <a href="#">
             <img class="ablum" src="${baseURL}${item.photoPath}428_428_${item.photoName}" alt="">
             <span class="name">${item.briefName}</span>
-            <span class="desc">${item.name}</span>
+            <span class="desc">${item.promotionInfo}</span>
             <div class="price">
               <span class="new-price">￥${item.promoPrice ? item.promoPrice : item.price}</span>
               <span class="old-price">￥${item.price}</span>
@@ -143,7 +144,10 @@
           </a>
         `
         productEl.append(itemEl)
+
       }
+      // 解决最后一行显示问题
+      addEmptyItem(productEl)
     }
 
   </script>

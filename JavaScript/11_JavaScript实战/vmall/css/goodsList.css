@@ -55,6 +55,9 @@
   margin-top: 14px;
   background-color: #fff;
 }
+.products .item.empty {
+  height: 0;
+}
 
 .products .item a {
   display: flex;
@@ -74,6 +77,7 @@
 }
 
 .products .item .desc {
+  height: 18px;
   font-size: 13px;
   color: #999;
 }

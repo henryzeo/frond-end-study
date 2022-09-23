@@ -68,47 +68,20 @@
   </div>
 
   <script src="../json/product_data.js"></script>
+  <script src="../js/utils.js"></script>
   <script>
-    // 资源服务器地址
+    // 初始化变量
     var baseURL = "https://res.vmallres.com/pimages"
+    var couponsEls = document.querySelector(".discount")
+    var sortEls = document.querySelector(".sort")
+    var activeSort = sortEls.querySelector(".active")
+    var activeDiscountList = []
+    var sortResultList = resultList.concat()
 
     // 添加item
-    var productEl = document.querySelector(".products")
-    for (const item of resultList) {
-
-      var itemEl = document.createElement("li")
-      itemEl.classList.add("item")
-
-      var couponsStr = ""
-      for (const label of item.services) {
-        couponsStr += `<span class="tip">${label}</span>`
-      }
-
-      itemEl.innerHTML = `
-        <a href="#">
-          <img class="ablum" src="${baseURL}${item.photoPath}428_428_${item.photoName}" alt="">
-          <span class="name">${item.briefName}</span>
-          <span class="desc">${item.promotionInfo}</span>
-          <div class="price">
-            <span class="new-price">￥${item.promoPrice ? item.promoPrice : item.price}</span>
-            <span class="old-price">￥${item.price}</span>
-          </div>
-          <div class="coupons">
-            ${couponsStr}
-          </div>
-          <div class="commont">
-            <span>${item.rateCount}人评论</span>
-            <span>${item.goodRate}% 好评</span>
-          </div>
-        </a>
-      `
-      productEl.append(itemEl)
-    }
+    showGoodsList(resultList)
     
-
-    // 监听服务优惠选项
-    var couponsEls = document.querySelector(".discount")
-    var activeDiscountList = []
+    // 服务优惠
     couponsEls.onclick = function(event) {
       var curTarget = event.target
       if (curTarget.textContent !== "服务优惠："){
@@ -125,8 +98,9 @@
 
       var updateGoodsList = resultList
       updateGoodsList = resultList.filter(fliterDiscount)
-      console.log(updateGoodsList)
+      // console.log(updateGoodsList)
 
+      showGoodsList(updateGoodsList)
     }
 
     function fliterDiscount(item) {
@@ -138,8 +112,86 @@
           }
         }
         return flag
+      }
+
+    function showGoodsList(list) {
+      var productEl = document.querySelector(".products")
+      productEl.innerHTML = ``
+      for (const item of list) {
+
+        var itemEl = document.createElement("li")
+        itemEl.classList.add("item")
+
+        var couponsStr = ""
+        for (const label of item.services) {
+          couponsStr += `<span class="tip">${label}</span>`
+        }
+
+        itemEl.innerHTML = `
+          <a href="#">
+            <img class="ablum" src="${baseURL}${item.photoPath}428_428_${item.photoName}" alt="">
+            <span class="name">${item.briefName}</span>
+            <span class="desc">${item.promotionInfo}</span>
+            <div class="price">
+              <span class="new-price">￥${item.promoPrice ? item.promoPrice : item.price}</span>
+              <span class="old-price">￥${item.price}</span>
+            </div>
+            <div class="coupons">
+              ${couponsStr}
+            </div>
+            <div class="commont">
+              <span>${item.rateCount}人评论</span>
+              <span>${item.goodRate}% 好评</span>
+            </div>
+          </a>
+        `
+        productEl.append(itemEl)
+
+      }
+      // 解决最后一行显示问题
+      addEmptyItem(productEl)
     }
 
+    // 排序
+    sortEls.onclick = function(event) {
+      var activeTarget = event.target
+      if (activeTarget.textContent !== "排序：") {
+        activeSort.classList.remove("active")
+        activeTarget.classList.add("active")
+        activeSort = activeTarget
+      }
+      sortCondition(activeTarget.textContent)
+
+      // 展示数据
+      showGoodsList(sortResultList)
+    }
+
+    function sortCondition(condition) {
+
+      switch (condition) {
+          case "综合":
+            sortResultList = resultList.concat()
+            break
+          case "好评":
+            sortResultList.sort(function(front, end) {
+              return end.goodRate - front.goodRate
+            })
+            break;
+            case "评论数":
+            sortResultList.sort(function(front, end) {
+              return end.rateCount - front.rateCount
+            })
+            break;
+            case "价格":
+            sortResultList.sort(function(front, end) {
+              return end.price - front.price
+            })
+            break;
+
+          default:
+            break;
+        }
+    }
   </script>
 </body>
 </html>
