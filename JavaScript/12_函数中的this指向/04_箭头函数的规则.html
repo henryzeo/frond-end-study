@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Title</title>
+</head>
+<body>
+
+
+<script>
+  // 定义函数
+
+  // function foo() {
+  //   console.log("声明声明")
+  // }
+  // foo()
+
+  var bar = function (name, age, height) {
+    console.log("表达式方式", this)
+    console.log(name, age, height)
+  }
+  bar.apply("apply", ["kobe", 18, 1.88])
+  // bar("kobe", 18, 1.88)
+
+  var baz = (name, age, height) => {
+    console.log("箭头函数", this)
+    console.log(name, age, height)
+  }
+  // 不会绑定this
+  baz.apply("apply", ["kobe", 18, 1.88])
+  // 不会绑定arguments
+  // baz("kobe", 18, 1.88)
+
+</script>
+</body>
+</html>

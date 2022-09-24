@@ -1,9 +1,12 @@
 .banner {
   position: relative;
+  overflow: hidden;
 }
 .banner__images {
   position: relative;
   height: 550px;
+
+  transition: all 500ms ease;
 }
 .banner__img {
   position: absolute;
@@ -12,11 +15,11 @@
   width: 100%;
   overflow: hidden;
 
-  opacity: 0;
+  /*opacity: 0;*/
 }
-.banner__img--on {
-  opacity: 1;
-}
+/*.banner__img--on {*/
+/*  opacity: 1;*/
+/*}*/
 .banner__img img {
   position: relative;
   transform: translate(-50%);

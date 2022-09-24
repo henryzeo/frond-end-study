@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Title</title>
+</head>
+<body>
+
+
+<script>
+  function foo(way, compare) {
+    console.log("this:", this)
+    this.way = way
+    this.compare = compare
+  }
+
+  foo("default")
+
+  var obj = {
+    name: "kobe"
+  }
+
+  obj.bar = foo
+  obj.bar()
+
+  foo.call("call")
+  foo.apply("apply")
+
+  var baz = foo.bind("bind")
+  baz()
+
+//  bind and new
+  new baz("new&bind")
+
+//  显式和隐式
+  obj.bar.call("call")
+
+</script>
+</body>
+</html>

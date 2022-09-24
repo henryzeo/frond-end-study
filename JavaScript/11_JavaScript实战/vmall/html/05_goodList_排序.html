@@ -156,6 +156,10 @@
 
     // 排序
     // 监听排序条件的点击
+    /*
+    * 可以使用 data-*
+    * dataset
+    * */
     sortEls.onclick = function(event) {
       // 获取当前发生点击事件
       var activeTarget = event.target
@@ -176,28 +180,28 @@
     function sortCondition(condition) {
 
       switch (condition) {
-          case "综合":
-            sortResultList = resultList.concat()
-            break
-          case "好评":
-            sortResultList.sort(function(front, end) {
-              return end.goodRate - front.goodRate
-            })
-            break;
-            case "评论数":
-            sortResultList.sort(function(front, end) {
-              return end.rateCount - front.rateCount
-            })
-            break;
-            case "价格":
-            sortResultList.sort(function(front, end) {
-              return end.price - front.price
-            })
-            break;
+        case "综合":
+          sortResultList = resultList.concat()
+          break
+        case "好评":
+          sortResultList.sort(function(front, end) {
+            return end.goodRate - front.goodRate
+          })
+          break;
+        case "评论数":
+          sortResultList.sort(function(front, end) {
+            return end.rateCount - front.rateCount
+          })
+          break;
+        case "价格":
+          sortResultList.sort(function(front, end) {
+            return end.price - front.price
+          })
+          break;
 
-          default:
-            break;
-        }
+        default:
+          break;
+      }
     }
   </script>
 </body>
