@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    function foo(a, b, c) {
+      var name = "kobe"
+      var age = 18
+      var height = 1.88
+    }
+    // console.log(foo.name)
+    // 获取形参数量
+    // console.log(foo.length)
+
+    function bar(...args) {
+      // arguments 保存所有传入的实参
+      console.log(arguments)
+      for (const item of arguments) {
+        console.log(item)
+      }
+      // 类数组对象转换为数组
+      // 法一:
+      var arr1 = [...arguments]
+      console.log(arr1)
+      // console.log([...arguments].filter(item => item === "a"))
+      // 法二:
+      var arr2 = [].slice.call(arguments)
+      console.log(arr2)
+      // 法三:
+      var arr3 = Array.from(arguments)
+      console.log(arr3)
+      // console.log("bar")
+    }
+    bar("a", "b", "c")
+    // console.log(bar.length)
+
+    function baz(a, b, ...args) {
+      console.log(arguments)
+    }
+    // baz()
+    // console.log(baz.length)
+
+  </script>
+</body>
+</html>
