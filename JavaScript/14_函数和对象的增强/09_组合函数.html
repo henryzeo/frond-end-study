@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+    function add(num1, num2) {
+      return num1 + num2
+    }
+
+    function double(num) {
+    return num * 2
+    }
+
+    function pow(num) {
+    return num ** 2
+    }
+
+    // 现在要将两个函数组合在一起
+    function composeFn(num) {
+      return double(pow(num))
+    }
+    // console.log("🚀 ~ composeFn(100)", composeFn(100))
+
+    // 通用组合函数
+    function compose(...fns) {
+      // 边界判断
+      if (fns.length <= 0) throw new Error("argument must have value")
+      for (const fn of fns) {
+        if (typeof fn != "function") throw new Error(`all arguments must be function`)
+      }
+
+      // 组合函数
+      return function (...args) {
+        var result = fns[0].apply(this, args)
+        for (let i = 1; i < fns.length; i++) {
+          result = fns[i].apply(this, [result])
+        }
+
+        return result
+      }
+    }
+
+    var doublePow = compose(double, pow)
+    console.log("🚀 ~ doublePow", doublePow)
+    console.log(doublePow(100, 20))
+
+    var addPow = compose(add, pow)
+    console.log("🚀 ~ addPow", addPow)
+    console.log(addPow(10, 20))
+    
+
+  </script>
+</body>
+</html>
