@@ -1,0 +1,58 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <script>
+    function foo(x, y, z) {
+      console.log(x + y + z)
+    }
+
+    function sum(num1, num2) {
+      return num1 + num2
+    }
+
+    function logInfo(date, type, message) {
+      console.log(`时间:${date} 类型:${type} 内容:${message}`)
+    }
+
+    // 自动柯里化
+    function zxCurry(fn) {
+      function curryFn(...args) {
+        // 两个操作
+        if (args.length >= fn.length) {
+          // 当传递的参数为最后一个时，执行函数
+          // return fn(...args)
+          return fn.apply(this, args)
+        } else {
+          // 当传递的参数不是最后一个时，返回一个新函数
+          return function(...newArgs) {
+            // 合并参数
+            // return curryFn(...args.concat(newArgs))
+            return curryFn.apply(this, args.concat(newArgs))
+          }
+        }
+      }
+
+      return curryFn
+    }
+
+    var fooCurry = zxCurry(foo)
+    fooCurry(10, 20, 30)
+
+    var sumCurry = zxCurry(sum)
+    console.log(sumCurry(20)(40))
+
+    var logInfoCurry = zxCurry(logInfo)
+    var logToday = logInfoCurry("2022-10-6")
+    var logTodayDebug = logToday("DEBUG")
+    logTodayDebug("发现了一个bug")
+
+  </script>
+ </body>
+ </html>
