@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    // 普通写法
+    function logInfo(date, type, message) {
+      console.log(`时间:${date} 类型:${type} 内容:${message}`)
+    }
+
+    logInfo("2022-10-5", "DEBUG", "修复界面搜索按钮点击的bug")
+
+    logInfo("2022-10-5", "DEBUG", "修复界面的bug")
+    logInfo("2022-10-5", "DEBUG", "修复界面的bug")
+    logInfo("2022-10-5", "DEBUG", "修复界面的bug")
+    // 每次修复都要把所有信息都写一遍,很不方便
+
+    // 柯里化
+    var logInfo = date => type => message => {
+      console.log(`时间:${date} 类型:${type} 内容:${message}`)
+    }
+
+    // 可以记录时间,和类型
+    var logToday = logInfo("2022-10-5")
+    var logTodayDebug = logToday("DEBUG")
+    var logTodayFeature = logToday("FEATURE")
+
+    // 使用时只传入message即可
+    logTodayDebug("修复了一处bug")
+    logTodayDebug("修复了一处bug")
+    
+    logTodayFeature("添加了用户管理-增加用户")
+
+  </script>
+  
+</body>
+</html>
