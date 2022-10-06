@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    // "use strict"
+
+    // 1.无法意外的创建全局变量
+    // function foo() {
+    //   message = "foo function"
+    // }
+    // foo()
+    // console.log(message)
+
+    // 2.严格模式下会引起静默失败的赋值操作抛出异常
+    var obj = {
+      name: "kobe",
+      age: 18
+    }
+    Object.defineProperty(obj, "name", {
+      writable: false,
+      configurable: false
+    })
+    // obj.name = "curry"
+    console.log(obj.name)
+
+    // 3.严格模式下删除不可删除的属性会抛出异常
+    // delete obj.name
+    console.log(obj)
+
+    // 4.严格模式下不允许函数参数有相同的名称
+    // function foo(name, name) {
+    //   console.log(name)
+    // }
+    // foo("kobe")
+
+    // 5.不允许0的八进制语法
+    // Octal literals are not allowed in strict mode.
+    // console.log(0123)
+    console.log(0o123)
+
+    // 6.严格模式下，不允许使用with
+    // 全局下，访问对象内的属性，抛出异常
+    // console.log(age)  
+
+    // 使用 with 扩展作用域链
+    // Strict mode code may not include a with statement 
+    // with (obj) {
+    //   console.log(age)
+    // }
+
+    // 7.严格模式下，eval不能为上层作用域引用变量
+    eval(`var message = "eval message"`)
+    // console.log(message)
+
+    // 8.严格模式下，this绑定不会转换为对象
+    function foo() {
+      console.log(this)
+    }
+    foo.apply("abc") // String{"abc"} | strict mode -> abc
+    foo.apply(23) // Number{23} | strict mode -> 23
+    foo.apply(undefined) // window  |strict mode -> undefined
+    foo.apply(null) //window | strict mode -> null
+
+    foo() // window | strict mode -> undefined
+
+  </script>
+
+</body>
+</html>
