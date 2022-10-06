@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    var animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+    // console.log("🚀 ~ file: 03_数组slice和splice.html ~ line 13 ~ animals", animals)
+
+    // slice 纯函数，不会改变原函数值
+    console.log(animals.slice(-1)) // 从-1开始创建一个新数组
+    console.log(animals)
+    console.log("----------------------")
+    // splice 普通函数，会改变原函数值
+    console.log(animals.splice(-1, 1)) // 从-1开始删除1个值
+    console.log(animals)
+    console.log(
+      animals.splice(-1, 1),
+    )
+
+
+
+  </script>
+</body>
+</html>
