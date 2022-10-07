@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+
+  <script>
+
+    function Person(name, age) {
+      this.name = name
+      this.age = age
+    }
+
+    Person.prototype.running = function() {
+      console.log(this.name + " running~")
+    }
+    Person.prototype.eating = function() {
+      console.log(this.name + " eating~")
+    }
+
+    function Student(name, age, sno, score) {
+      // this.name = name
+      // this.age = age
+      this.sno = sno
+      this.score = score
+    }
+
+    function Teacher(name, age, title) {
+      // this.name = name
+      // this.age = age
+      this.title = title
+    }
+
+    // 使用原型链实现继承
+    var person = new Person("kobe", 30)
+    Student.prototype = person
+    Student.prototype.studying = function() {
+      console.log(this.name + " studying~")
+    }
+
+    var stu1 = new Student("curry", 27, 101, 99)
+    stu1.running()
+    stu1.studying()
+    console.log(stu1.name)
+
+    Teacher.prototype = person
+    Teacher.prototype.teaching = function() {
+      console.log(this.name + " teaching~")
+    }
+
+    var tch1 = new Teacher("zx", 20, "教授")
+    tch1.running()
+    tch1.teaching()
+    console.log(tch1.name)
+    console.log(tch1.title)
+
+    // 原型链实现继承的缺点
+    // 1. 当子类中不再绑定属性时, 所有子类公用一个属性, 值不能改变
+
+
+
+
+
+  </script>
+
+</body>
+</html>
