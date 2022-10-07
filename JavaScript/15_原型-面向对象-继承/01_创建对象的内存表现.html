@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    function Person(name, age) {
+      this.name = name
+      this.age = age
+    }
+
+    Person.prototype.playing = function() {
+      console.log("playing basketball...")
+    }
+
+    var p1 = new Person("curry", 33)
+    var p2 = new Person("kobe", 30)
+
+    console.log("🚀 ~ p.name", p1.name)
+    console.log("🚀 ~ p1.age", p1.age)
+    console.log("🚀 ~ p2.name", p2.name)
+    console.log("🚀 ~ p2.age", p2.age)
+
+    console.log("🚀 ~ p1.playing.prototype", p1.playing.prototype)
+
+    p1.info = "篮球运动员"
+    p2.height = 1.98
+    Person.prototype.address = "China"
+    
+    console.log("🚀 ~ p1.info ", p1.info ) // 篮球运动员
+    console.log("🚀 ~ p2.info ", p2.info ) // undefined
+    console.log("🚀 ~ p2.height ", p2.height ) // 1.98
+    console.log("🚀 ~ p1.address ", p1.address ) // China
+    console.log("🚀 ~ p2.address ", p2.address ) // China
+  </script>
+
+</body>
+</html>
