@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+
+  <script src="./js/inherit.js"></script>
+  <script>
+
+    function Person(name, age, height, address) {
+      this.name = name
+      this.age = age
+      this.height = height
+      this.address = address
+    }
+
+    Person.prototype.running = function () {
+      console.log(this.name, " running~")
+    }
+
+    function Student(name, age, height, address, sno, score) {
+      Person.call(this, name, age, height, address)
+      this.sno = sno
+      this.score = score
+    }
+
+    function Teacher(name, age, height, address, title) {
+      Person.call(this, name, age, height, address)
+      this.title = title
+    }
+
+    inherit(Student, Person)
+    Student.prototype.studying = function () {
+      console.log(this.name, " studying~")
+    }
+
+    var stu = new Student("curry", 18, 1.88, "China", 101, 100)
+
+    stu.studying()
+    stu.running()
+
+  </script>
+</body>
+</html>

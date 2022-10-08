@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    function createObject(obj) {
+      function F() {}
+      F.prototype = obj
+      return new F()
+    }
+
+    function inherit(subClass, superClass) {
+      subClass.prototype = createObject(superClass.prototype)
+      Object.defineProperty(subClass.prototype, "constructor", {
+        enumerable: false,
+        configurable: true,
+        writable: true,
+        value: subClass
+      })
+    }
+
+    function Person(name, age, height, address) {
+      this.name = name
+      this.age = age
+      this.height = height
+      this.address = address
+    }
+
+    function Student(name, age, height, address, sno, score) {
+      Person.call(this, name, age, height, address)
+      this.sno = sno
+      this.score = score
+    }
+
+    function Teacher(name, age, height, address, title) {
+      Person.call(this, name, age, height, address)
+      this.title = title
+    }
+
+    inherit(Student, Person)
+
+    // 之前的做法, 可以但不推荐
+    // var person = new Person("kobe", 28, 1.88, "China")
+    // Student.prototype = person
+
+    // 方法一
+    // Student.prototype = Person.prototype
+
+    // 方法二
+    // function F() {}
+    // F.prototype = Person.prototype
+    // Student.prototype = new F()
+
+    // 方法三
+    // var obj = Object.create(Person.prototype)
+    // Student.prototype = obj
+
+    var stu1 = new Student("curry", 18, 1.88, "China", 101, 100)
+
+    console.log(stu1)
+
+
+  </script>
+
+</body>
+</html>
