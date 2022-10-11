@@ -4,12 +4,12 @@ function createObject(obj) {
   return new F()
 }
 
-function inherit(subClass, superClass) {
-  subClass.prototype = createObject(superClass.prototype)
-  Object.defineProperty(subClass.prototype, "constructor", {
+function inherit(subType, superType) {
+  subType.prototype = createObject(superType.prototype)
+  Object.defineProperty(subType.prototype, "constructor", {
     enumerable: false,
     configurable: true,
     writable: true,
-    value: subClass
+    value: subType
   })
 }

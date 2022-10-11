@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    function create(obj) {
+      function F() {}
+      F.prototype = obj
+      return new F()
+    }
+
+    function createObj(obj, name, age, height, address) {
+      var newObj = create(obj)
+      newObj.name = name
+      newObj.age = age
+      newObj.height = height
+      newObj.address = address
+      newObj.sayHi = function() {
+        console.log("hi")
+      }
+      return newObj
+    }
+
+    var person = {
+      name: "名字",
+      friends: [""]
+    }
+
+    var kobe = createObj(person, "kobe", 18, 1.88, "China")
+
+    console.log(kobe)
+
+  </script>
+
+</body>
+</html>

@@ -46,27 +46,29 @@
     }
 
     // 使用原型链实现继承
-    var person = new Person("kobe", 30)
-    Student.prototype = person
-    Student.prototype.studying = function() {
-      console.log(this.name + " studying~")
-    }
+    // var person = new Person("kobe", 30)
+    // Student.prototype = person
+    // Student.prototype.studying = function() {
+    //   console.log(this.name + " studying~")
+    // }
 
-    var stu1 = new Student("curry", 27, 1.88, "China", 101, 99)
-    stu1.running()
-    stu1.studying()
-    console.log(stu1.name)
+    // var stu1 = new Student("curry", 27, 1.88, "China", 101, 99)
+    // stu1.running()
+    // stu1.studying()
+    // console.log(stu1.name)
 
-    Teacher.prototype = person
+    // Teacher.prototype = person
     Teacher.prototype.teaching = function() {
       console.log(this.name + " teaching~")
     }
+    console.log(Person)
 
     var tch1 = new Teacher("zx", 20, 1.98, "China", "教授")
-    tch1.running()
+    console.log(tch1)
+    // tch1.running()
     tch1.teaching()
-    console.log(tch1.name)
-    console.log(tch1.title)
+    // console.log(tch1.name)
+    // console.log(tch1.title)
 
     // 原型链实现继承的缺点
     // 1. 当子类中不再绑定属性时, 所有子类公用一个属性, 值不能改变
