@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    // {} === new Object()
+    var obj = {}
+
+    // new Function()
+    function Foo() {}
+
+    var f1 = new Foo()
+    var f2 = new Foo()
+
+    console.log(Foo.prototype === f1.__proto__)
+    console.log(Foo.__proto__ === Function.__proto__)
+    console.log(Foo.__proto__ === Function.prototype)
+    console.log(Foo.prototype.__proto__ === Object.prototype)
+    console.log(Foo.prototype.__proto__ === obj.__proto__)
+    console.log(f1.__proto__ === f2.__proto__)
+    console.log(f1.__proto__ === Foo.prototype)
+    console.log(obj.__proto__ === Object.prototype)
+    console.log(Object.prototype.__proto__ === null)
+    
+    // 对象只有隐式原型
+    // 函数既是对象又是函数, 所以既有隐式原型也有显式原型
+
+  </script>
+
+</body>
+</html>
