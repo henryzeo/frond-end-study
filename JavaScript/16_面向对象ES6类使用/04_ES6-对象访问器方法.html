@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    // 方法一: 存取修饰符
+    var obj = {
+      _name: "kobe"
+    }
+
+    Object.defineProperty(obj, "name", {
+      set: function(value) {
+        console.log("调用set方法")
+        _name = value
+      },
+      get: function() {
+        console.log("调用get方法")
+        return _name
+      }
+    })
+
+    obj.name = "curry"
+    console.log(obj.name)
+    console.log(obj)
+
+    // 方法二: 对象内部直接定义getter setter
+    // var obj = {
+    //   _name: "kobe",
+    //   set name(value) {
+    //     console.log("调用set方法")
+    //     _name = value
+    //   },
+    //   get name() {
+    //     console.log("调用get方法")
+    //     return _name
+    //   }
+    // }
+
+    // obj.name = "curry"
+    // console.log(obj.name)
+    // console.log(obj)
+
+
+  </script>
+
+</body>
+</html>

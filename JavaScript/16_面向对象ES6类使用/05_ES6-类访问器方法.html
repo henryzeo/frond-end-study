@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    class Person {
+      constructor(name, age) {
+        this._name = name
+        this._age = age
+      }
+
+      // 实例方法
+      running() {
+        console.log("running")
+      }
+
+      // 静态方法
+      static eating() {
+        // 静态方法的this是当前类
+        // console.log(this)
+        console.log("eating")
+      }
+
+      set name(value) {
+        this._name = value
+      }
+      get name() {
+        return this._name
+      }
+    }
+
+    // 静态方法可以用类直接调用, 实例方法不行
+    Person.eating()
+    // Person.running()
+
+    var p = new Person("kobe", 10)
+    console.log(p.name)
+    console.log(p)
+    p.name = "abc"
+    console.log(p)
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    // 如果有一个bird类, 想继承animal类和 flyer类
+    class Animal {
+      sound() {
+        console.log("~~~~~~~~")
+      }
+    }
+    
+    class Flyer {
+      flying() {
+        console.log("flying~~~~~")
+      }
+    }
+    
+    // JavaScript是无法实现多继承的
+    class Bird /*extends Animal, Flyer*/ {
+      eating() {
+        console.log("bird eating~~")
+      }
+    }
+
+    function mixinAnimal(basicClass) {
+      return class extends basicClass {
+        sound() {
+          console.log("sound~~~~~~~~~")
+        }
+      }
+    }
+
+    function mixinFlyer(basicClass) {
+      return class extends basicClass {
+        flying() {
+          console.log("flying~~~~~~~~~")
+        }
+      }
+    }
+
+    class NewBird extends mixinAnimal(mixinFlyer(Bird)) {
+      running() {
+        console.log("running~~~~~")
+      }
+    }
+
+    var newBird = new NewBird()
+    newBird.running()
+    newBird.sound()
+    newBird.eating()
+    newBird.flying()
+
+  </script>
+
+</body>
+</html>
