@@ -12,7 +12,7 @@
     const initialValue = 0;
     const sumWithInitial = array1.reduce(
       (previousValue, currentValue) => {
-        debugger
+        // debugger
         return previousValue + currentValue
       },
       initialValue
@@ -20,6 +20,8 @@
 
     console.log(sumWithInitial);
     // expected output: 10
+
+    console.log(Object.getPrototypeOf)
 
   </script>
 </body>
