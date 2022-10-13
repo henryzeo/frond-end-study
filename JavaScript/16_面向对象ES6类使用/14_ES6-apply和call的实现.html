@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    function foo(name, age) {
+      console.log("foo this", this, name, age)
+    }
+
+    // foo() // window
+    foo.apply({name: "apply"}, ["kobe", 18])
+    // foo.call({name: "call"}, "kobe", 18)
+
+    // console.log(foo) // 函数本身是没有apply、call方法的
+    // // foo是new Function()构建的，foo继承自Function，Function里所有的函数foo里都能调用
+    // console.log(Function.apply, Function.call) 
+    // console.log(foo.__proto__ === Function.prototype)
+
+    // 手动实现apply方法
+    // 在Function对象添加方法
+    Function.prototype.zxApply = function(thisArg, otherArgs) {
+      // this.apply(thisArg, otherArgs)
+
+      // 如果传入的thisArg不是对象类型，就不能添加函数
+      // 确保thissArg是一个对象
+      thisArg = (thisArg === null || thisArg === undefined) ? window : Object(thisArg)
+
+      thisArg.fn = this
+      thisArg.fn(...otherArgs)
+      delete thisArg.fn
+
+    }
+
+    foo.zxApply({name: "zxApply"}, ["kobe", 18])
+    foo.zxApply("zxApply", ["kobe", 18])
+
+    // 手动实现call方法
+    // 在Function对象添加方法
+    Function.prototype.zxCall = function(thisArg, ...otherArgs) {
+
+      thisArg = (thisArg === null || thisArg === undefined) ? window : Object(thisArg)
+
+      thisArg.fn = this
+      thisArg.fn(...otherArgs)
+      delete thisArg.fn
+    }
+
+    foo.zxCall({name: "zxCall"}, "kobe", 18)
+    foo.zxCall("zxCall", "kobe", 18)
+
+  </script>
+
+</body>
+</html>
