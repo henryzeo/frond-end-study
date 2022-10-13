@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    var arr = ["abc", "cba", "nba", "mba"]
+    // var arr1 = arr[0]
+    // var arr2 = arr[1]
+    // var arr3 = arr[2]
+    // var arr4 = arr[3]
+    // console.log(arr1, arr2, arr3, arr4)
+
+    var [arr1, arr2, arr3, arr4] = arr
+    console.log(arr1, arr2, arr3, arr4)
+
+    // 数组解构
+    // 1. 顺序的问题: 严格的顺序
+    var [arr1, , arr3] = arr
+    console.log(arr1, arr3)
+
+    // 2. 默认值
+    var [arr1, arr2, arr3, arr4, arr5 = "default"] = arr
+    console.log(arr1, arr2, arr3, arr4, arr5)
+
+    // 3. 剩余参数
+    var [arr1, arr2, ...arrs] = arr
+    console.log(arr1, arr2, arrs)
+
+
+    var obj = {name: "kobe", age: 18, height: 1.88}
+    // var name = obj.name
+    // var age = obj.age
+    // var height = obj.height
+    // console.log(name, age, height)
+
+    // var {name, age, height} = obj
+    // console.log(name, age, height)
+
+    // 对象解构
+    // 1. 顺序问题: 无序, 根据key解构
+    // var {age, height, name} = obj
+    // console.log(name, age, height)
+
+    // 2. 默认值
+    // var {age, height, name, weight = 56} = obj
+    // console.log(age, height, name, weight)
+
+    // 3. 重命名
+    // var {age: nAge, name: nName, height: nHeight} = obj
+    // console.log(age, name, height)  // 报错,age name height 未定义
+    // console.log(nAge, nName, nHeight)
+
+    // 4. 剩余参数
+    var {age, ...objs} = obj
+    console.log(age, objs)
+
+    // 应用场景：
+    // 1. 对函数的参数进行解构：获取的对象的名字
+    function getName({name}) {
+      return name
+    }
+
+    console.log("🚀 ~ getName(obj)", getName(obj))
+
+
+    // 2. 获取一个对象时，自动对其进行解构
+    function printAge(obj) {
+      var {name, age, height} = obj
+      console.log(age)
+    }
+
+    printAge(obj)
+  </script>
+
+</body>
+</html>

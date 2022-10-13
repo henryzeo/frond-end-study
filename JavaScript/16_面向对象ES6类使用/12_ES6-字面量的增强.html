@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    name = "kobe"
+    age = 18
+    key = "sno"
+
+    var obj = {
+      name: name,
+      age: age,
+      eating: function() {
+        console.log("eating~~~")
+      },
+      sno: 101
+    }
+    console.log(obj.name)
+    console.log(obj.age)
+    obj.eating()
+    console.log(obj.sno)
+
+    var bar = {
+      // 属性的简写
+      name,
+      age,
+      // 函数的简写
+      eating() {
+        console.log("eating~~~")
+      },
+      // 计算属性名
+      [key]: 101
+    }
+
+    console.log(bar.name)
+    console.log(bar.age)
+    bar.eating()
+    console.log(bar.sno)
+
+  </script>
+</body>
+</html>
