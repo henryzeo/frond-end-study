@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    function foo(name, age, height) {
+      console.log("foo this", this, name, age, height)
+    }
+
+    var newBind = foo.bind({name: "bind"}, "curry", 20)
+    newBind(1.88)
+    var newBind = foo.bind("bind", "curry", 20)
+    newBind(1.88)
+
+    // 手动实现bind
+    Function.prototype.zxBind = function(thisArg, ...otherArgs) {
+      thisArg = (thisArg === null || thisArg === undefined) ? window : Object(thisArg)
+      thisArg.fn = this
+      return function(...newArgs) {
+        var allArgs = [...otherArgs, ...newArgs]
+        thisArg.fn(...allArgs)
+      }
+    }
+
+    var zxNewBind = foo.zxBind({name: "zxBind"}, "curry", 20)
+    zxNewBind(1.88)
+    var zxNewBind = foo.zxBind("zxBind", "curry", 20)
+    zxNewBind(1.88)
+
+  </script>
+
+</body>
+</html>
