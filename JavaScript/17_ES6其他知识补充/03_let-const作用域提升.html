@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <script>
+
+    // ES6之前，只有全局作用域和函数作用域
+
+    // function foo() {
+    //   // const和let不能进行作用域提升
+    //   // 我所理解的作用域提升是：可以在变量声明和赋值之前访问该变量
+    //   // 而const和let声明的变量无法在其之前被访问
+    //   // 虽然mdn和ecma262都有表明let和const声明被提升，但是初始化没被提升。
+
+    //   console.log("hello world")
+    //   // console.log(bar, baz)
+
+    //   // bar = "aaa" // bar不能被访问
+    //   // console.log(bar) // 也不行
+      
+    //   let bar = "bar"
+    //   let baz = "baz"
+    // }
+    // foo()
+
+    // 从ES6开始新增了块级作用域，let/const/function/class都有块作用域
+    {
+      function foo() {
+        console.log("foo function")
+      }
+    }
+    
+    foo()
+    // 函数在块级作用域外能被访问，JS引擎做了作用域提升
+
+  </script>
+
+</body>
+</html>
