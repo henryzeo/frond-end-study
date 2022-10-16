@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <script>
+
+    function foo(name, age) {
+      // name = name || "sb."
+      // age = age || 0
+
+      // name = (name === null || name === undefined) ? "sb." : name
+      // age = (age === null || age === undefined) ? 0 : age
+
+      // 新增语法
+      name = name ?? "sb."
+      age = age ?? 0
+
+      console.log(name, age)
+    }
+
+    // 默认参数的位置
+    // 一般放在形参列表的最后面
+    // 如果有剩余参数,则放在剩余参数前面
+    // 默认参数和剩余参数一样默认不计算在length里
+
+    foo("kobe", 18)
+    foo()
+    foo(0)
+    foo(false)
+    foo(undefined)
+    foo("")
+
+    // 默认参数和对象解构结合
+    const obj = {
+      name: "kobe",
+      age: 18
+    }
+
+    function bar({name = "sb.", age = 0} = {}) {
+      console.log(name, age)
+    }
+
+    bar()
+
+
+  </script>
+
+</body>
+</html>
