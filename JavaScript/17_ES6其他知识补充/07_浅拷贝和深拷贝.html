@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+
+  <script>
+
+    // 浅拷贝
+    // let obj = {
+    //   name: "kobe",
+    //   age: 18,
+    //   height: 1.88
+    // }
+
+    // let obj1 = {...obj}
+
+    // console.log(obj1.name)
+    // obj1.name = "curry"
+    // console.log(obj1.name)
+
+    let obj = {
+      name: "kobe",
+      age: 18,
+      height: 1.88,
+      friends: {
+        name: "curry"
+      }
+    }
+
+    // 浅拷贝：基础类型是值拷贝，引用类型是地址拷贝
+    // 如果改变引用类型里的属性值，原对象和拷贝的新对象都会改变
+    // let obj1 = {...obj}
+
+    // console.log("🚀 ~ obj.friends.name", obj.friends.name)
+    // obj1.friends.name = "zx"
+    // console.log("🚀 ~ obj.friends.name", obj.friends.name)
+
+    // 深拷贝
+    // 不管什么类型都进行值拷贝
+    // 实现方法：
+    // 1. 第三方库
+    // 2. 手动实现
+    // 3. JS机制，JSON
+    const obj1 = JSON.parse(JSON.stringify(obj))
+    
+    console.log("🚀 ~ obj.friends.name", obj.friends.name)
+    obj1.friends.name = "zx"
+    console.log("🚀 ~ obj.friends.name", obj.friends.name)
+    console.log("🚀 ~ obj1.friends.name", obj1.friends.name)
+
+  </script>
+
+</body>
+</html>
