@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+
+<script>
+
+  let obj1 = {name: "zx"}
+  let obj2 = {name: "kobe"}
+  let obj3 = {name: "james"}
+
+  let arr = [obj1, obj2, obj3]
+  obj1 = null
+  obj2 = null
+  obj3 = null
+
+  console.log(obj1, obj2, obj3)
+  console.log(arr)
+
+  // 强引用
+  let zSet = new Set(arr)
+  arr = null
+  zSet.forEach(item => console.log(item))
+
+  // 弱引用：如果没有其他对 WeakSet 中的对象进行引用，那么这些对象就会被当成垃圾回收
+  let zWeakSet = new WeakSet(arr)
+  arr = null
+  console.log(zWeakSet.has(obj1))
+  console.log(zWeakSet.has(obj2))
+  console.log(zWeakSet.has(obj3))
+
+  // WeakSet 应用场景
+  let zxWeakSet = new WeakSet()
+  class Person {
+
+    constructor() {
+      zxWeakSet.add(this)
+    }
+
+    running() {
+      if (!zxWeakSet.has(this)) {
+        console.log("Type error: 无法使用其他对象调用该方法")
+        return
+      }
+      console.log("running~")
+    }
+  }
+
+  let zx = new Person()
+  zx.running()
+
+  const runFn = zx.running
+  let obj = {run: runFn}
+  obj.run()
+
+</script>
+
+</body>
+</html>
