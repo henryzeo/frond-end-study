@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    let obj = new Set()
+    obj.add("abc")
+    obj.add( {name: "kobe"} )
+    obj.add(18)
+
+    obj.forEach(item => {
+      console.log(item)
+    })
+
+    // 属性：
+    // set的长度 size
+    console.log(obj.size)
+
+    // 方法
+    // add()
+    obj.add(["cba", "nba"])
+    console.log(obj)
+
+    // delete()
+    obj.delete("abc")
+    console.log(obj)
+
+    // has()
+    console.log(obj.has(18))
+
+    // forEach()
+    obj.forEach(item => console.log(item))
+
+    // clear()
+    obj.clear()
+    console.log(obj)
+
+
+
+  </script>
+
+</body>
+</html>
