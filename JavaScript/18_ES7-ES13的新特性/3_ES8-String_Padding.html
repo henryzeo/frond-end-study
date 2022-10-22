@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    // String Padding
+    // 比如需要对身份证、银行卡的前面位数进行隐藏
+    let cardNumber = "452635258556988887"
+    console.log("🚀 ~ cardNumber", cardNumber)
+    const lastFourNumber = cardNumber.slice(-4)
+    const finalCardNumber = lastFourNumber.padStart(cardNumber.length, "*")
+    console.log("🚀 ~ finalCardNumber", finalCardNumber)
+
+    // 时间格式化
+    const time1 = "6".padStart(2, "0")
+    const time2 = "12".padStart(2, "0")
+    console.log(time1)
+    console.log(time2)
+
+  </script>
+</body>
+</html>

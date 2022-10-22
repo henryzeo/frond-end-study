@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    var arr = [
+      "kobe",
+      18,
+      1.88,
+      "大连市"
+    ]
+
+    // before ES7
+    console.log(arr.indexOf(name))
+    console.log(arr.indexOf(18))
+    // after ES7
+    console.log(arr.includes(name))
+    console.log(arr.includes(18))
+
+    const num = 9
+    // before ES7
+    const dbNum = Math.pow(num, 2)
+    console.log(dbNum)
+    // after ES7
+    const dbNumES7 = num ** 2
+    console.log(dbNumES7)
+
+
+  </script>
+</body>
+</html>

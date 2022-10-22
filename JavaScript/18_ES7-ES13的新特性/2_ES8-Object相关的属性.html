@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <script>
+
+    let obj = {
+      name: "kobe", 
+      age: 18
+    }
+
+    // values：获取对象的所有值，存放到一个数组中
+    const val = Object.values(obj)
+    console.log("🚀 ~ val", val)
+
+    // entities，生成一个数组，该数组存放的是可枚举的键值对数组
+    let arr = Object.entries("abc")
+    console.log("🚀 ~ arr", arr)
+
+    let arr1 = Object.entries(obj)
+    console.log("🚀 ~ arr1", arr1)
+
+    // descripation 属性描述符
+    console.log("🚀 ~ Object.getOwnPropertyDescriptors(obj)", Object.getOwnPropertyDescriptors(obj))
+    
+
+  </script>
+
+</body>
+</html>
