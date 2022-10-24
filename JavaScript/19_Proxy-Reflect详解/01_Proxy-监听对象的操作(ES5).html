@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    let obj = {
+      name: "kobe",
+      age: 18,
+      height: 1.88
+    }
+
+    // 现在我要监听obj对象属性的操作
+    // let _name = obj.name
+    // Object.defineProperty(obj, "name", {
+    //   set(newValue) {
+    //     console.log("监听：给name属性设置新值")
+    //     _name = newValue
+    //   },
+    //   get() {
+    //     console.log("监听：获取name属性值")
+    //     return _name
+    //   }
+    // })
+
+    // 给对象的所有属性都设置监听
+    Object.keys(obj).forEach(key => {
+      let value = obj[key]
+      Object.defineProperty(obj, key, {
+        set(newValue) {
+          console.log(`监听：给${key}设置新值`)
+          value = newValue
+        },
+        get() {
+          console.log(`监听：获取${key}的值`)
+          return value
+        }
+      })
+    });
+
+    obj.name = "curry"
+    console.log(obj.name)
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+
+  <script>
+
+    function foo(name, age) {
+      console.log(this, name, age)
+    }
+
+    let proxy = new Proxy(foo, {
+      construct(target, otherArgs) {
+        console.log("监听：new操作")
+        return new target(...otherArgs)
+      },
+      apply(target, thisArg, otherArgs) {
+        console.log(`监听：函数apply为${thisArg}`)
+        target.apply(thisArg, otherArgs)
+      }
+    })
+
+
+  proxy.apply("foo apply", ["curry", 20])
+  new proxy("kobe", 15)
+
+  </script>
+
+</body>
+</html>
