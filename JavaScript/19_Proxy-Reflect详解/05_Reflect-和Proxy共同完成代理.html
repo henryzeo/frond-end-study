@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    let obj = {
+      name: "kobe",
+      age: 18
+    }
+
+    let proxy = new Proxy(obj, {
+      set: function(target, key, newValue, receiver) {
+        // target[key] = newValue
+        // 1.好处一：不用直接操作原对象
+        // 2.好处二：Reflect.set方法返回一个Boolean值，可以判断操作是否成功
+        if (!Reflect.set(target, key, newValue)) {
+          throw new Error(`set ${key} value failure`)
+        }
+      },
+      get: function(target, key, receiver) {
+
+      }
+    })
+
+    // Reflect.defineProperty(obj, "name", {
+    //   configurable: false,
+    //   writable: false
+    // })
+
+    proxy.name = "curry"
+    console.log(obj)
+
+  </script>
+
+</body>
+</html>
