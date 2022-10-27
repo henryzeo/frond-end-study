@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <script>
+
+    // ES6之前都是这么使用异步处理代码的
+    // 这对编程人员有很高的要求，对于设置函数无法做到统一
+    // 需要自己来设计回调函数、回调函数的名称、回调函数的使用
+    // 对于不同的人、不同的框架设计出来的方案是不同的，那么我们必须耐心去看别人的源码或者文档，以便可以理解它这个函数到底怎么用
+    function execCode(counter, successCallback, failureCallback) {
+
+      setTimeout(() => {
+        if (counter > 0) {
+          console.log("洗菜")
+          console.log("切菜")
+          console.log("炒菜")
+          console.log("装盘")
+          let total = 0
+          for (let i = 1; i <= counter; i++) {
+            total += i
+          }
+
+          // 成功的回调
+          successCallback(total)
+        } else {
+          // 失败的回调
+          failureCallback(`${counter}值有问题`)
+        }
+      }, 3000)
+
+    }
+
+    execCode(-10, (value) => {
+      setTimeout(() => {
+        console.log("给你",value,"元, 取饭~~~")
+      }, 3000)
+    }, (err) => {
+      console.log("本次执行失败:", err)
+    })
+
+  </script>
+
+</body>
+</html>

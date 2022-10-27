@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    let obj = {
+      _name: "kobe",
+      set name(value) { // 这里对obj的name操作了两次,一次set方法,一次_name赋值
+        console.log("this: ", this) // 默认指向 obj对象
+        // _name赋值不能监听,所以要让this指向我们的代理对象.用receiver参数
+        this._name = value
+      },
+      get name() {
+        console.log("this:", this)
+        return this._name
+      }
+    }
+
+    let proxy = new Proxy(obj, {
+      set: function(target, key, newValue, receiver) {
+        // target[key] = newValue
+        // 1.好处一：不用直接操作原对象
+        // 2.好处二：Reflect.set方法返回一个Boolean值，可以判断操作是否成功
+        /* 
+          3.好处三：
+            > receiver 就是外层的Proxy对象
+            > 如果原对象进行setter/getter操作时, receiver可以决定this的指向
+        */
+        console.log(`${target}中set方法被调用`)
+        if (!Reflect.set(target, key, newValue, receiver)) {
+          throw new Error(`set ${key} value failure`)
+        }
+      },
+      get: function(target, key, receiver) {
+        console.log(`${target}中get方法被调用`)
+        return Reflect.get(target, key, receiver)
+      }
+    })
+
+    // Reflect.defineProperty(obj, "name", {
+    //   configurable: false,
+    //   writable: false
+    // })
+
+    proxy.name = "curry"
+    console.log(proxy.name)
+
+  </script>
+
+</body>
+</html>
