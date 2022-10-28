@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    const p1 = new Promise((resolve, reject) => {
+      setTimeout(()=> {
+        resolve("p1 resolve")
+        // reject("p1 reject")
+      }, 3000)
+    })
+    const p2 = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        // resolve("p2 resolve")
+        reject("p2 reject")
+      }, 2000)
+    })
+    const p3 = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve("p3 resolve")
+        // reject("p3 reject")
+      }, 5000);
+    })
+    
+    const pros = [p1, p2, p3]
+    
+    // Promise.allSettled()
+    // 传入一个可迭代对象
+    // 返回：对象数组，无论状态时resolve还是reject，所有的Promise执行完之后，统一返回
+    Promise.allSettled(pros).then(res => {
+      console.log(res)
+    }).catch(err => {
+      console.log(err)
+    })
+    
+    </script>
+
+</body>
+</html>
