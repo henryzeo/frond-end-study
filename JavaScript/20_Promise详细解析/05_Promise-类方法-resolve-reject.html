@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    // Promise.resolve()
+    Promise.resolve("promise static call resolve").then(res => {
+      console.log(res)
+    })
+    // 相当于
+    const p = new Promise((resolve, reject) => {
+      resolve("promise resolve")
+    })
+    p.then(res => {
+      console.log(res)
+    })
+
+    // Promise.reject()
+    Promise.reject("promise static call reject").catch(err => {
+      console.log(err)
+    })
+    // 相当于
+    const p1 = new Promise((resolve, reject) => {
+      reject("promise reject")
+    })
+    p1.catch(err => {
+      console.log(err)
+    })
+    
+  </script>
+
+</body>
+</html>
