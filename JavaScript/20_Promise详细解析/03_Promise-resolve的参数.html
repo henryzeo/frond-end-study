@@ -26,8 +26,8 @@
         // thenable对象
         resolve({
           name: "kobe",
-          then: function() {
-            console.log("new then")
+          then: function(resolve) {
+            resolve("new then")
           }
         })
 
@@ -40,6 +40,20 @@
     }).catch(err => {
       console.log(err)
     })
+
+    var thenable = { then: function(a, b) {
+      // b("Rejecting")
+      a("Resolving");
+      throw new TypeError("Throwing");
+    }};
+
+    var p2 = Promise.resolve(thenable);
+    p2.then(function(v) {
+      // 不会被调用
+      console.log(v)
+    }, function(e) {
+      // console.log(e); // TypeError: Throwing
+    });
 
   </script>
 
