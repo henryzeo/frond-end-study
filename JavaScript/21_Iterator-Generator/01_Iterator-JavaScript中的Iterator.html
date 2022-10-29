@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    const names = ["kobe", "curry", "james"]
+
+    let index = 0
+    const nameIterator = {
+      next: function() {
+        if (index < names.length) {
+          return { done: false, value: names[index++] }
+        } else {
+          return { done: true }
+        }
+      }
+    }
+
+    console.log(nameIterator.next())
+    console.log(nameIterator.next())
+    console.log(nameIterator.next())
+    console.log(nameIterator.next())
+
+    // 如果再需要新的迭代器呢？
+    // 复制粘贴？太麻烦了
+
+  </script>
+
+</body>
+</html>
