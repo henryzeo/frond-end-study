@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    class Person {
+
+      constructor(name, age, height, friends) {
+        this.name = name
+        this.age = age
+        this.height = height
+        this.friends = friends
+      }
+
+      // 生成器是一种特殊的迭代器
+      *[Symbol.iterator]() {
+        // yield* this.friends
+        yield* Object.values(this)
+        // yield* Object.entries(this)
+      }
+
+    }
+
+    const p = new Person("kobe", 18, 1.88, ["curry", "james", "owen", "zeo"])
+    // for-of遍历必须是可迭代对象
+    // 可迭代对象--必须实现迭代协议--实现Symbo.iterator方法
+    for (const item of p) {
+      console.log(item)
+    }
+
+    const personIterator = p[Symbol.iterator]()
+    console.log(personIterator.next())
+    console.log(personIterator.next())
+    console.log(personIterator.next())
+    console.log(personIterator.next())
+    console.log(personIterator.next())
+
+  </script>
+
+</body>
+</html>
