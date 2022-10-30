@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <script>
+
+    // 一个可迭代对象内部必须有一个[Symbol.iterator]函数
+    let infos = {
+      friends: ["james", "kobe", "curry"],
+      [Symbol.iterator]() {
+        let index = 0
+        const infosIterator = {
+          next: () => {
+            // console.log(this)
+            if (index < this.friends.length) {
+              return { value: this.friends[index++], done: false }
+            } else {
+              return { value: undefined, done: true }
+            }
+          }
+        }
+
+        return infosIterator
+      }
+    }
+
+    const friendsIterator = infos[Symbol.iterator]()
+    console.log(friendsIterator.next())
+    console.log(friendsIterator.next())
+    console.log(friendsIterator.next())
+    console.log(friendsIterator.next())
+
+    for (const item of infos.friends) {
+      console.log(item)
+    }
+
+    
+
+
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    // 1. for-of
+    // 2. 展开语法
+    // 3. 解构赋值
+    // 4. new Set/WeakSet Map/WeakMap
+    // 5. Promise.all() Promise.race() Array.from()
+
+    const arr = ["kobe", "james", "curry"]
+    const obj = {
+      name: "kobe",
+      age: 18,
+      height: 1.88,
+      friends: ["curry", "james", "owen"],
+      [Symbol.iterator]: function() {
+        let index = 0
+        return {
+          next: () => {
+            if (index < this.friends.length) {
+              return { done: false, value: this.friends[index++] }
+            } else {
+              return { done: true }
+            }
+          }
+        }
+      }
+    }
+
+    // for (const item of arr) {
+    //   console.log(item)
+    // }
+
+    function foo(a, b, c, d) {
+      console.log(a, b, c, d)
+    }
+
+    // foo(...arr)
+    // foo(...obj)
+
+    function bar(args) {
+      // 解构赋值
+      [name, age] = [...args]
+      console.log(name, age)
+    }
+
+    // bar(obj)
+    // bar(arr)
+
+  </script>
+
+</body>
+</html>
