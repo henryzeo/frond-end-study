@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    function requestData(url) {
+      return new Promise((resolve, reject) => { 
+        setTimeout(() => {
+          resolve(url)
+        }, 2000)
+        })
+    }
+    function* getData() {
+      const res = yield requestData("kobe ")
+      console.log("第一次结果:", res)
+      const res1 = yield requestData(res + "is ")
+      console.log("第二次结果:", res1)
+      const res2 = yield requestData(res1 + "superman ")
+      console.log("第三次结果:", res2)
+    }
+
+    // const generator = getData()
+    // generator.next().value.then(res => {
+    //   generator.next(res).value.then(res1 => {
+    //     generator.next(res1).value.then(res2 => {
+    //       generator.next(res2)
+    //     })
+    //   })
+    // })
+
+    function execGenFn(genFn) {
+      const generator = genFn()
+      function exec(res) {
+        // result: {value: Promise/undefine, done: false/true}
+        const result = generator.next(res)
+        if (result.done) return
+        result.value.then(res => {
+          exec(res)
+        })
+      }
+      exec()
+    }
+
+    execGenFn(getData)
+
+  </script>
+
+</body>
+</html>
