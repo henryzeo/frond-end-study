@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    // 如果微任务队列存在任务,那么在执行宏任务之前
+    // 先执行所有的微任务,确保微任务队列为空
+
+    console.log('script start')
+
+    console.log(1)
+    console.log(2)
+    setTimeout(() => { // 加入宏任务队列
+      console.log(3, "setTimeout");
+    }, 0);
+
+    // Promise
+    new Promise((resolve, reject) => {
+      // console.log(3);
+      resolve(3) // 加入微任务队列
+    }).then(res => {
+      console.log(res, "then");
+    })
+
+    console.log(4);
+
+    console.log('script end')
+
+    /*setTimeout执行顺序
+      script start
+      1
+      2
+      4
+      script end
+      3
+    */
+    /*Promise执行顺序
+      script start
+      1
+      2
+      3
+      4
+      script end
+    */
+    /*Promise then执行顺序
+      script start
+      1
+      2
+      4
+      script end
+      3
+    */
+    /*Promise then + setTimeout执行顺序
+      script start
+      1
+      2
+      4
+      script end
+      3 then
+      3 setTimeout
+    */
+
+  </script>
+
+</body>
+</html>
