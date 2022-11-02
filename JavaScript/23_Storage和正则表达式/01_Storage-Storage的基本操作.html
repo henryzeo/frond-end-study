@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    let token = localStorage.getItem("token")
+    if (!token) {
+      console.log("set token info");
+      token = "zeotokeninfo"
+
+      localStorage.setItem("token", token)
+    }
+    
+    let name = localStorage.getItem("name")
+    let password = localStorage.getItem("password")
+    if (!name || !password) {
+      console.log("set name and password");
+      name = "zeo"
+      password = "zeo123456"
+
+      localStorage.setItem("name", name)
+      localStorage.setItem("password", password)
+    }
+
+
+    console.log('token :>> ', localStorage.getItem("token"));
+    console.log('name :>> ', localStorage.getItem("name"));
+    console.log('password :>> ', localStorage.getItem("password"));
+
+  </script>
+
+</body>
+</html>
