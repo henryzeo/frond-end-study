@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    // 贪婪，想把所有的都涵盖上，不管中间的是否也满足正则条件
+    // 只管尽量多的内容
+    const str = ".aabc. .adc. ";
+    // const re = /\..+\./ig;
+    // console.log(str.match(re));
+
+    // 惰性，一个挨一个的判断，只要满足完整的正则条件，就返回结果
+    // 然后继续判断，直到需要判断的内容都执行完
+    const re = /\..+?\./ig;
+    console.log(str.match(re));
+
+  </script>
+
+</body>
+</html>

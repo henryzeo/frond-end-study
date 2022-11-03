@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+  // () 成组，
+  // (?:) 非捕获组：不让()里的组返回到结果中，打印不出来
+  // (?<name>) 命名组 - 以key(name)/value(组) 的形式添加到结果的groups中
+    const str = "asabcabcabcdfkjabcabcshfabcasskafjsabcabcdfaaieof";
+    const re = /(?<item>a(b)c){2,}/ig;
+
+    const result = str.matchAll(re)
+    Array.from(result).forEach(item => console.log(item))
+
+  </script>
+
+</body>
+</html>

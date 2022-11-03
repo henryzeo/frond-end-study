@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    const str = "abc123abc123abc123";
+    const re = /1\d\d/ig;
+    const result = str.matchAll(re);
+    for (const item of result) {
+      console.log('item :>> ', item);
+    }
+    // console.log('result :>> ', result);
+
+    const str1 = "hello world"
+    const re1 = /\s/
+    const result1 = str1.match(re1)
+    console.log('result1 :>> ', result1);
+
+    // \w [0-9a-zA-Z_]
+
+  </script>
+
+</body>
+</html>

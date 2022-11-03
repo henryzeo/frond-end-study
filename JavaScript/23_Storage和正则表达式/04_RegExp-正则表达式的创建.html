@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    const str = "jsdfhabcksdoabcjlksjdfaabcc";
+    
+    // 1.字面量
+    const re = /abc/ig;
+    const result1 = str.match(re);
+    console.log('result1 :>> ', result1);
+
+    // 2.RegExp对象
+    const re1 = new RegExp("abc", "ig");
+    const result2 = str.match(re1);
+    console.log('result2 :>> ', result2);
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+  // 转义符号 \
+    const str = "abc.bca.cba";
+    const re = /\./ig;
+    const result = str.split(re)
+    console.log(result);
+
+    // 案例：获取fileNames中所有js/jsx文件
+    const fileNames = ["abc.txt", "zzz.js", "jjj.jsx", "aaa.js", "cbzzza.jsx", "nba.pdf"]
+    const jsFileRe = /\.jsx?$/
+    const jsFiles = []
+    for (const item of fileNames) {
+      if ( jsFileRe.test(item) ) {
+        jsFiles.push(item)
+      }
+    }
+
+    const newJSFiles = fileNames.filter(filename => jsFileRe.test(filename))
+    console.log(newJSFiles);
+
+    console.log(jsFiles);
+
+  </script>
+
+</body>
+</html>

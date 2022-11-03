@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    const str = "abe bcs axz";
+    const re1 = /\bbc/ig;
+    const result1 = str.matchAll(re1)
+    for (const item of result1) {
+      console.log(item);
+    }
+    
+    // 案例：从字符串中提取时间
+    const infos = "now time is 11:56, 12:00 eat food, number is 123:321!"
+    const timeRe = /\b\d\d:\d\d\b/ig
+    console.log(infos.match(timeRe));
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  账号：<input class="name" type="text">
+  <p class="tips">请输入账号</p>
+
+  <script>
+
+    const str = "jsdfhabcksdoabcabcjlksjdfaabcc";
+    
+    // RegExp 方法
+    // 1. test()
+    const re1 = /a(b)c/ig;
+    const re2 = /abcd/ig;
+    // const result1 = re1.test(str);
+    // const result2 = re2.test(str);
+    // console.log('result1 :>> ', result1); // true
+    // console.log('result2 :>> ', result2); // false
+
+    // 2. exec: 返回执行正则表达式的结果
+    // const result3 = re1.exec(str)
+    // const result4 = re2.exec(str)
+    // console.log('result3 :>> ', result3);
+    // console.log('result4 :>> ', result4);
+
+    // String 方法
+    // 1. match()
+    // const result5 = str.match(re1);
+    // console.log('result5 :>> ', result5);
+
+    // 2. matchAll()
+    // const result6 = str.matchAll(re1);
+    // for (const item of result6) {
+    //   console.log('item :>> ', item);
+    // }
+
+    // 4. replace()
+    // const result7 = str.replace(re1, "cba");
+    // console.log('result7 :>> ', result7);
+
+    // 5. split()
+    // const result8 = str.split(re1);
+    // console.log('result8 :>> ', result8);
+
+    // 案例：让用户输入的账号必须是aaa以上
+    const inputEl = document.querySelector(".name");
+    const tipEl = document.querySelector(".tips");
+    inputEl.oninput = function() {
+      const value = this.value
+      console.log(value);
+      if ( /aaaa/g.test(value) ) {
+        tipEl.textContent = "输入的内容符合要求"
+      } else {
+        tipEl.textContent = "输入的内容不符合要求，必须有3个以上的a"
+      }
+    }
+
+
+  </script>
+
+</body>
+</html>
