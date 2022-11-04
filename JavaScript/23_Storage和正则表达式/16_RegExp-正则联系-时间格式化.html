@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <h2 class="date"></h2>
+
+  <script>
+
+    function formatDate(timestamp, fmtString) {
+      const date = new Date(timestamp);
+
+      const dateObj = {
+        "y+": date.getFullYear(),
+        "M+": date.getMonth(),
+        "d+": date.getDate(),
+        "h+": date.getHours(),
+        "m+": date.getMinutes(),
+        "s+": date.getSeconds()
+      }
+
+      for (const key in dateObj) {
+        const regExp = new RegExp(key, "g");
+        const value = (dateObj[key]+"").padStart(2, "0");
+
+        fmtString = fmtString.replace(regExp, value)
+      }
+
+      return fmtString;
+
+      // console.log('date.getDate() :>> ', date.getDate()); // 日期
+      // console.log('date.getDay() :>> ', date.getDay()); // 星期几
+    }
+
+    // 页面显示时间
+    const product = {
+      name: "iPhone",
+      newPrice: 3999,
+      oldPrice: 4999,
+      endTime: 1659152301637
+    }
+    
+    const dateEl = document.querySelector(".date");
+    dateEl.textContent = formatDate(product.endTime, "yyyy/MM/dd hh:mm:ss");
+
+
+  </script>
+
+</body>
+</html>

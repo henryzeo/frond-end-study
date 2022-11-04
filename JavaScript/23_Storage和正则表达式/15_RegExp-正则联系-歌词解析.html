@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script src="./js/parse_lyric.js"></script>
+  <script>
+
+    const lyricStr = "[00:00.000] 作词 : 许莫\n[00:01.000] 作曲 : 张艺兴\n[00:08.990]编曲：张艺兴/Joon-Ho Hong\n[00:12.070]Background Vocals：张艺兴\n[00:14.520]\n[00:20.340]你不会知道\n[00:22.100]\n[00:23.290]我多庆幸在你面前重新出现\n[00:29.230]你一定会对我说\n[00:31.730]明明每天都见面\n[00:35.450]我们之间兜兜转转\n[00:39.170]隔着言不由衷的遥远\n[00:43.290]我们之间互相试探\n[00:47.850]带着口是心非的遗憾\n[00:51.400]\n[00:52.100]从未想过如何习惯\n[00:56.250]你不在身边\n[01:00.060]青春这答卷的答案\n[01:04.170]是有你陪伴\n[01:07.960]\n[01:10.990]我不停祈愿\n[01:14.050]\n[01:14.580]希望时间重返\n[01:17.920]\n[01:19.310]记忆里你在身边\n[01:22.120]冷笑话逗你 露出你笑脸\n[01:27.010]我不停祈愿\n[01:30.610]至少回忆里一切还不算太晚\n[01:35.000]幸好我们的回忆\n[01:37.140]可以定格成照片\n[01:39.970]你能否感受到 我的改变\n[01:45.370]\n[02:00.540]我想对你说 我 我喜欢你\n[02:13.080]\n[02:13.660]从未想过如何习惯\n[02:17.780]你不在身边\n[02:20.380]\n[02:21.690]青春这答卷的答案\n[02:25.770]是有你陪伴\n[02:30.160]\n[02:32.520]我不停祈愿\n[02:35.500]\n[02:36.100]希望时间重返\n[02:39.310]\n[02:40.830]记忆里你在身边\n[02:43.700]冷笑话逗你 露出你笑脸\n[02:48.560]我不停祈愿\n[02:51.610]\n[02:52.150]至少回忆里一切还不算太晚\n[02:56.490]幸好我们的回忆\n[02:58.630]可以定格成照片\n[03:01.470]你能否感受到 我的改变\n[03:08.530]\n[03:14.750]我的改变\n";
+
+    const lyricLineStr = lyricStr.split("\n");
+    // console.log('lyricLineStr :>> ', lyricLineStr);
+
+    const lyricOs = [];
+
+    for (const line of lyricLineStr) {
+      // console.log('line :>> ', line);
+      const lyricTimeRe = /\[(\d{2}):(\d{2})\.(\d{2,3})\]/;
+      if (!line) continue;
+      // const lyricTimeRe = /\[(?<minute>\d{2}):(?<second>\d{2})\.(?<millisecond>\d{2,3})\]/;
+      const result = line.match(lyricTimeRe);
+      // console.log('result :>> ', result);
+      const minute = result[1] * 60 * 1000;
+      const second = result[2] * 1000;
+      const millisecond = result[3].length === 3 ? result[3] : result[3]*10;
+      const time = minute + second + millisecond;
+      // console.log('time :>> ', time);
+
+      // 获取歌词
+      const lyric = line.replace(lyricTimeRe, "").trim();
+      // console.log('lyric :>> ', lyric);
+
+      lyricOs.push({ time, lyric })
+    }
+
+    // console.log('lyricOs :>> ', lyricOs);
+
+    // 解析歌词封装的使用
+    const lyricObjs = parseLyric(lyricStr)
+    console.log('lyricObjs :>> ', lyricObjs);
+
+  </script>
+
+</body>
+</html>
