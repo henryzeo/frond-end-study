@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <input type="text">
+
+  <script>
+    const INITIAL_VALUE_NULL = null;
+
+    /*
+      设计一个函数
+      1. 需要传入什么参数
+      2. 需要返回什么参数
+      3. 实现功能
+    */
+
+    /* 
+      实现防抖函数
+      1. 传入参数：fn具体执行函数，delay延迟执行时间
+      2. 返回值：一个函数，赋值给inputEl.oninput
+      3. 具体实现
+    */
+    function zxdebounce(fn, delay) {
+
+      let timer = INITIAL_VALUE_NULL;
+
+      function _debounce() {
+
+        if (timer) clearTimeout(timer);
+
+        timer = setTimeout(() => {
+
+          fn();
+          timer = INITIAL_VALUE_NULL;
+          
+        }, delay);
+
+      }
+
+      return _debounce;
+    }
+
+  </script>
+
+  <!-- <script src=" https://cdn.jsdelivr.net/npm/underscore@1.13.6/underscore-umd-min.js "></script> -->
+  <script>
+
+    // 案例：监听输入框里的内容，与发送网络请求的次数
+    const inputEl = document.querySelector("input");
+    // 防抖处理
+    let count = 1;
+    inputEl.oninput = zxdebounce(function() {
+      console.log(`发送网络请求 ${count++} 次`, this.value);
+    }, 3000)
+
+  </script>
+
+</body>
+</html>
