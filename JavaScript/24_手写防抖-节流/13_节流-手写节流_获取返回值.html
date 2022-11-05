@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <input type="text">
+  <button>取消</button>
+
+
+  <!-- <script src=" https://cdn.jsdelivr.net/npm/underscore@1.13.6/underscore-umd-min.js "></script> -->
+
+  <script src="./js/zx_throttle.js"></script>
+  <script>
+
+    const inputEl = document.querySelector("input");
+    const btnEl = document.querySelector("button");
+
+    // 节流处理
+    let count = 1;
+    const execThrottleFn = zxthrottle(function() {
+      console.log(`发送网络请求 ${count++} 次`, this.value);
+      return "我是返回值。"
+    }, 2000);
+    inputEl.oninput = execThrottleFn;
+
+    btnEl.onclick = function() {
+      console.log("取消");
+      execThrottleFn.cancel();
+    }
+
+    execThrottleFn("参数1").then(res => {
+      console.log(res);
+    })
+
+  </script>
+
+</body>
+</html>

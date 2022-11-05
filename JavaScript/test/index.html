@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+
+  <script>
+
+    // var name = "zeo";
+    // (() => {
+    //   if (typeof name === "undefined") {
+    //     var name = "kobe";
+    //     console.info("Goodbye", name);
+    //   } else {
+    //     console.log("Hello", name);
+    //   }
+    // })()
+
+    // var arr = [1, 2, 3];
+    // arr[10] = 10;
+    // console.log(...arr);
+    // console.log(arr.filter((index) => arr[index] !== "undefined"));
+
+    // 注意JavaScript编译和执行的顺序
+    // 先编译：编译时，把所有的变量都创建出来，赋默认值
+    // 后执行
+    // var a = {n:1};
+    // var b = a;
+    // a.x = a = {n:2};
+    // console.log('a :>> ', a);
+    // console.log('b :>> ', b);
+    // console.log('a.x :>> ', a.x);
+    // console.log('b.x :>> ', b.x);
+
+
+    var a ={}, b = {key: 'b'}, c = { key: 'c' };
+    a[b] = 123; // 给a对象添加一个 [Object object]属性， value：123
+    a[c] = 456; // 给a对象的属性 [Object object] 赋值 456
+    console.log('a[b] :>> ', a[b]);
+
+  </script>
+
+</body>
+</html>

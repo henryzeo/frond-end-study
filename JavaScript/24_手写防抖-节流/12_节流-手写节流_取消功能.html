@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <input type="text">
+  <button>取消</button>
+
+
+  <!-- <script src=" https://cdn.jsdelivr.net/npm/underscore@1.13.6/underscore-umd-min.js "></script> -->
+
+  <script>
+
+    function zxthrottle(fn, interval, leading = true, trailing = true) {
+
+      let startTime = 0;
+      let timer = null;
+
+      function _throttle(...args) {
+
+        let nowTime = new Date().getTime();
+
+        if (!leading && startTime === 0) startTime = nowTime;
+
+        let waitTime = interval - (nowTime - startTime);
+        
+        if (waitTime <= 0) {
+
+          if (timer) clearTimeout(timer);
+          fn.apply(this, args);
+          startTime = nowTime;
+          timer = null;
+
+        } else {
+          if (!timer && trailing) {
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              startTime = new Date().getTime();
+              timer = null;
+            }, waitTime);
+          }
+        }
+        
+      }
+
+      _throttle.cancel = function() {
+        if (timer) clearTimeout(timer);
+        startTime = 0;
+        timer = null;
+      }
+
+      return _throttle;
+    }
+
+  </script>
+
+  <script>
+
+    const inputEl = document.querySelector("input");
+    const btnEl = document.querySelector("button");
+
+    // 节流处理
+    let count = 1;
+    const zexecThrottleFn = zxthrottle(function() {
+      console.log(`发送网络请求 ${count++} 次`, this.value);
+    }, 2000);
+    inputEl.oninput = zexecThrottleFn;
+
+    btnEl.onclick = function() {
+      console.log("取消");
+      zexecThrottleFn.cancel();
+    }
+
+  </script>
+
+</body>
+</html>
