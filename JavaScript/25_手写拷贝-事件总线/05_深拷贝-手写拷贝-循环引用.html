@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script src="./js/is_object.js"></script>
+  <script>
+    function deepClone(originalValue, map = new WeakMap()) {
+
+      // Symbol类型
+      // Symbol 不是一个对象，所以逻辑应该在判断是否为原始类型上方
+      if (typeof originalValue === "symbol") {
+        return Symbol(originalValue.description);
+      }
+
+      // 原始类型
+      if (!isObject(originalValue)) {
+        return originalValue;
+      }
+
+      // 函数类型
+      if (typeof originalValue === "function") {
+        return originalValue;
+      }
+
+      // Set
+      if (originalValue instanceof Set) {
+        let newSet = new Set();
+        for (const item of originalValue) {
+          newSet.add(deepClone(item));
+        }
+        return newSet;
+      }
+
+      // Map
+      if (originalValue instanceof Map) {
+        let newMap = new Map();
+        for (const [key, value] of originalValue) {
+          newMap.set(key, value);
+        }
+        return newMap;
+      }
+
+      // 对象或数组类型
+      if (map.get(originalValue)) {
+        return map.get(originalValue);
+      }
+      let newObj = Array.isArray(originalValue) ? [] : {};
+      map.set(originalValue, newObj);
+
+      for (const key in originalValue) {
+        newObj[key] = deepClone(originalValue[key], map);
+      }
+
+      // 特殊处理Symbol为key时
+      let symbols = Object.getOwnPropertySymbols(originalValue);
+      for (const item of symbols) {
+        newObj[Symbol(item.description)] = deepClone(originalValue[item], map);
+      }
+
+      return newObj;
+
+    }
+  </script>
+  <script>
+
+    let info = {
+      name: "kobe",
+      age: 18,
+      height: 1.88,
+      friend: {
+        name: "zeo",
+        address: {
+          city: "西安",
+          detail: "balabalabala~"
+        }
+      },
+      // 无限递归
+      // self: info
+    }
+    // Maximum call stack size exceeded
+    debugger
+    info.self = info;
+    
+    let newInfo = deepClone(info);
+
+    console.log('newInfo :>> ', newInfo);
+    console.log('newInfo === info :>> ', newInfo === info);
+
+
+  </script>
+
+</body>
+</html>

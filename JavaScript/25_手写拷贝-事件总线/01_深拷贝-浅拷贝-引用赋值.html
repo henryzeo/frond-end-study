@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    let obj1 = {
+      name: "kobe",
+      age: 18,
+      height: 1.88,
+      friends: {
+        name: "zeo",
+        age: 17
+      }
+    };
+
+    // 浅拷贝
+    // 内部引用对象，相互影响
+    // let obj2 = { ...obj1 };
+    // obj1.friends.name = "curry";
+    // console.log('obj2.friends.name :>> ', obj2.friends.name);
+
+    // let obj2 = Object.assign({}, obj1);
+    // obj1.friends.name = "curry";
+    // console.log('obj2.friends.name :>> ', obj2.friends.name);
+
+    // 深拷贝
+    // 内部引用对象，相互无关
+    let obj3 = JSON.parse(JSON.stringify(obj1));
+    obj1.friends.name = "curry";
+    console.log('obj3.friends.name :>> ', obj3.friends.name);
+
+  </script>
+
+</body>
+</html>

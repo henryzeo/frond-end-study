@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script src="./js/is_object.js"></script>
+  <script>
+    function deepClone(originalValue) {
+
+      // Symbol类型
+      // Symbol 不是一个对象，所以逻辑应该在判断是否为原始类型上方
+      if (typeof originalValue === "symbol") {
+        return Symbol(originalValue.description);
+      }
+
+      // 原始类型
+      if (!isObject(originalValue)) {
+        return originalValue;
+      }
+
+      // 函数类型
+      if (typeof originalValue === "function") {
+        return originalValue;
+      }
+
+      // Set
+      if (originalValue instanceof Set) {
+        let newSet = new Set();
+        for (const item of originalValue) {
+          newSet.add(deepClone(item));
+        }
+        return newSet;
+      }
+
+      // Map
+      if (originalValue instanceof Map) {
+        let newMap = new Map();
+        for (const [key, value] of originalValue) {
+          newMap.set(key, value);
+        }
+        return newMap;
+      }
+
+      // 对象或数组类型
+      let newObj = Array.isArray(originalValue) ? [] : {};
+      for (const key in originalValue) {
+        newObj[key] = deepClone(originalValue[key]);
+      }
+
+      // 特殊处理Symbol为key时
+      let symbols = Object.getOwnPropertySymbols(originalValue);
+      for (const item of symbols) {
+        newObj[Symbol(item.description)] = deepClone(originalValue[item]);
+      }
+
+      return newObj;
+
+    }
+  </script>
+  <script>
+
+    // let map = new Map([
+    //   ["p1", {name:"kobe"}],
+    //   ["p2", {name:"curry"}],
+    //   ["p3", {name:"james"}]
+    // ]);
+    // let newMap = deepClone(map);
+    // console.log('newMap :>> ', newMap);
+    // console.log('map===newMap :>> ', map===newMap);
+
+    // let set = new Set([1, 2, 3, 4]);
+    // for (const key in set) {
+    //   console.log(key);
+    // }
+    // let newSet = deepClone(set);
+    // console.log('newSet :>> ', newSet);
+    // console.log('set===newSet :>> ', set===newSet);
+
+
+    // function foo() {
+    //   let name = "kobe";
+    // }
+
+    // let newFn = deepClone(foo);
+    // console.log('foo===newFn :>> ', foo===newFn);
+
+    // let arr = ["abc", "nba", "cba", "mba"];
+    // let newArr = deepClone(arr);
+    // console.log('newArr :>> ', newArr);
+
+
+    const s1 = Symbol("s1")
+    const s2 = Symbol("s2")
+    let info = {
+      name: "kobe",
+      age: 18,
+      height: 1.88,
+      friend: {
+        name: "zeo",
+        address: {
+          city: "西安",
+          detail: "balabalabala~"
+        }
+      },
+      symbolKey: Symbol(),
+      [s1]: "aaaa",
+      [s2]: "bbbb"
+    }
+    
+    let newInfo = deepClone(info);
+
+    console.log('newInfo :>> ', newInfo);
+    console.log('newInfo === info :>> ', newInfo === info);
+
+    console.log('info.symbolKey===newInfo.symbolKey :>> ', info.symbolKey===newInfo.symbolKey);
+
+    console.log('typeof info.symbolKey :>> ', typeof info.symbolKey);
+    console.log('isObject(info.symbolKey) :>> ', isObject(info.symbolKey));
+
+
+
+  </script>
+
+</body>
+</html>
