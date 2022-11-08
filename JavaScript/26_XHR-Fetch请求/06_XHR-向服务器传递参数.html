@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <form class="info" action="submit">
+    <input type="text" name="username" id="username">
+    <input type="password" name="password" id="password">
+  </form>
+  <button>提交</button>
+
+  <script>
+
+    const formEl = document.querySelector(".info");
+    const btnEl = document.querySelector("button");
+
+    btnEl.addEventListener("click", () => {
+      // 创建XMLHttpRequest对象
+      let xhr = new XMLHttpRequest();
+      // 监听XHR对象的状态变化
+      xhr.onload = function() {
+        if (xhr.status >= 200 && xhr.status < 300) {
+          console.log(xhr.response);
+        } else {
+          console.log(xhr.status, xhr.statusText);
+        }
+      }
+      xhr.responseType = "json";
+
+      // 配置网络请求
+      // 向服务器传递参数方式1：get -> query
+      // xhr.open("get", "http://123.207.32.32:1888/02_param/get?name=kobe&age=18");
+      // xhr.send();
+
+      // 向服务器传递参数方式2：post -> urlencoded
+      // xhr.open("post", "http://123.207.32.32:1888/02_param/posturl");
+      // xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      // const data = "name=kobe&age=18";
+      // xhr.send(data);
+
+      // 向服务器传递参数方式3：post -> FormData
+      // xhr.open("post", "http://123.207.32.32:1888/02_param/postform");
+      // const formData = new FormData(formEl);
+      // xhr.send(formData);
+
+      // 向服务器传递参数方式4：post -> json
+      xhr.open("post", "http://123.207.32.32:1888/02_param/postjson");
+      xhr.setRequestHeader("Content-type", "application/json");
+      const jsonData = JSON.stringify({name:"zeo", age:18});
+
+      //发送网络请求
+      xhr.send(jsonData);
+    });
+
+  </script>
+
+</body>
+</html>

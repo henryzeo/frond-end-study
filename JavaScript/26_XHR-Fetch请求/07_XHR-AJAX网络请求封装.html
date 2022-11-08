@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    function zxajax({
+      url,
+      method = "get",
+      data = {},
+      headers: {}, // token
+      success,
+      failure
+    }={}) {
+
+      // 1.创建XMLHttpRequest对象
+      let xhr = new XMLHttpRequest();
+
+      // 2.监听XHR对象的状态变化
+      xhr.onload = function() {
+        if (xhr.status >= 200 && xhr.status < 300) {
+          success && success(xhr.response);
+        } else {
+          failure && failure({ status: xhr.status, message: xhr.statusText });
+        }
+      }
+
+      // 3.设置类型
+      xhr.responseType = "json";
+
+      if ( method.toUpperCase() === "GET" ) {
+        const queryStrings = [];
+        for (const key in data) {
+          queryStrings.push(`${key}=${data[key]}`);
+        }
+        url = url + "?" + queryStrings.join("&");
+        // 4.配置网络请求
+        xhr.open(method, url);
+        // 5.发送网络请求
+        xhr.send();
+      } else {
+        // 4.配置网络请求
+        xhr.open(method, url);
+        // 5.发送网络请求
+        xhr.setRequestHeader("Content-type", "application/json");
+        xhr.send(JSON.stringify(data));
+      }
+
+    }
+
+    // zxajax({
+    //   url: "http://123.207.32.32:1888/02_param/get",
+    //   method: "get",
+    //   data: {
+    //     name: "zeo",
+    //     age: 18
+    //   },
+    //   success: function(res) {
+    //     console.log(res);
+    //   },
+    //   failure: function(err) {
+    //     console.log(err);
+    //     // alert(err.message);
+    //   }
+    // })
+
+    zxajax({
+      url: "http://123.207.32.32:1888/02_param/postjson",
+      method: "post",
+      data: {
+        name: "post",
+        age: 18
+      },
+      success: function(res) {
+        console.log(res);
+      },
+      failure: function(err) {
+        console.log(err);
+        // alert(err.message);
+      }
+    })
+
+  </script>
+
+  <!-- <script>
+    zxajax("http://123.207.32.32:1888/02_param/get?name=kobe&age=18"); 
+  </script> -->
+
+</body>
+</html> 
