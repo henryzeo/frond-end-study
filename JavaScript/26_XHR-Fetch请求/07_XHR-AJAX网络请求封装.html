@@ -15,7 +15,8 @@
       url,
       method = "get",
       data = {},
-      headers: {}, // token
+      headers = {}, // token
+      // 还可以使用promise
       success,
       failure
     }={}) {
@@ -83,15 +84,9 @@
       },
       failure: function(err) {
         console.log(err);
-        // alert(err.message);
       }
     })
 
   </script>
-
-  <!-- <script>
-    zxajax("http://123.207.32.32:1888/02_param/get?name=kobe&age=18"); 
-  </script> -->
-
 </body>
 </html> 

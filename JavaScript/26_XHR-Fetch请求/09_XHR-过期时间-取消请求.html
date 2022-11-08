@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <button>请求取消</button>
+
+  <script>
+
+     function zxajax({
+      url,
+      method = "get",
+      data = {},
+      headers = {}, // token
+      // 还可以使用promise
+      success,
+      failure
+     }) {
+
+      const xhr = new XMLHttpRequest();
+
+      xhr.onload = function() {
+        console.log(xhr.response);
+      }
+
+      xhr.ontimeout = function() {
+        console.log("请求超时了！");
+      }
+
+      xhr.onabort = function() {
+        console.log("请求取消了！");
+      }
+
+      xhr.responseType = "json";
+
+      // 设置过期时间
+      // xhr.timeout = 3000;
+      xhr.open(method, url);
+
+      xhr.send();
+
+      // 手动取消请求
+      const btnEl = document.querySelector("button");
+      btnEl.onclick = function() {
+        xhr.abort();
+      }
+
+     }
+
+     zxajax({
+      method: "get", 
+      url: "http://123.207.32.32:1888/01_basic/timeout"
+     })
+
+
+
+  </script>
+</body>
+</html> 
