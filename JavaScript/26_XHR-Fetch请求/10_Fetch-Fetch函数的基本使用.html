@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+
+  <script>
+
+    // fetch() 返回一个promise， resolve是返回一个Response对象
+    // fetch("http://123.207.32.32:8000/home/multidata").then(res => {
+    //   res.json().then(res => {
+    //     console.log('res :>> ', res);
+    //   })
+    // }).catch(err => {
+    //   console.log('err :>> ', err);
+    // })
+
+    // 优化
+    // fetch("http://123.207.32.32:8000/home/multidata").then(res => {
+    //   return res.json();
+    // }).then(res => {
+    //   console.log('res :>> ', res);
+    // }).catch(err => {
+    //   console.log('err :>> ', err);
+    // })
+
+    // 最终优化
+    // async function getData() {
+    //   const response = await fetch("http://123.207.32.32:8000/home/multidata");
+    //   const res = response.json();
+    //   return res;
+    // }
+    // getData().then(res => {
+    //   console.log('res :>> ', res);
+    // })
+
+    // post请求并有参数
+    // async function getData() {
+    //   const response = await fetch("http://123.207.32.32:8000/home/multidata", {
+
+    //   });
+    //   const res = await response.json();
+    //   // console.log('res :>> ', res);
+    //   return res;
+    // }
+    // console.log('getData() :>> ', getData());
+
+    const formData = new FormData();
+    formData.append("name", "kobe")
+    formData.append("age", 18)
+    async function getData() {
+      const response = await fetch("http://123.207.32.32:1888/02_param/postform", {
+        method: "post",
+        body: formData
+      })
+
+      // ok 如果状态码是200-299 返回ture，否则返回false
+      console.log(response.ok, response.status, response.statusText);
+
+      const res = await response.json()
+      console.log('res :>> ', res);
+    }
+    getData()
+
+
+  </script>
+
+</body>
+</html>
