@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <!-- 
+    integrity: 哈希值，用来防止资源被篡改
+    crossorigin: 加载不同资源时，浏览器是否需要携带用户凭证信息（cookie、ssl 证书 等）
+      anonyous: 不需要
+      user-credentail: 需要
+ -->
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+
+  <script>
+
+    // console.log("%O", window.jQuery);
+    // console.log("%O", window.$);
+    // console.log(window.jQuery === window.$);
+
+    // 页面显示Hello jQuery
+    $("body").text("Hello jQuery");
+    
+  </script>
+
+</body>
+</html>
