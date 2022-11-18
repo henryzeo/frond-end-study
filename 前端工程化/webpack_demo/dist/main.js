@@ -1,0 +1,1 @@
+new class{constructor(e){this.name=e}getName(){return this.name}}("doudou");
