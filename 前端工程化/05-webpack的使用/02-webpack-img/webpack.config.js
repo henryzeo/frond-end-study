@@ -1,4 +1,4 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
   entry: "./src/main.js",
@@ -8,7 +8,6 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
       { test: /\.(png|jpg|svg|jpeg|gif)$/, type: "asset" }
     ]
   }

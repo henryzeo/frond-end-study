@@ -1,5 +1,5 @@
 {
-  "name": "01-webpack-loader",
+  "name": "02-webpack-img-js-vue",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
@@ -10,8 +10,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "css-loader": "^6.7.2",
-    "style-loader": "^3.3.1",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.0"
   }
